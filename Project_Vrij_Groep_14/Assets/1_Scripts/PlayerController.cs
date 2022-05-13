@@ -45,13 +45,18 @@ public class PlayerController : MonoBehaviour {
             velocity.y += Mathf.Sqrt(jumpHeight*-3*gravity);
         }
 
+        Move();
+        Look();
+
+    }
+
+    public void Move() {
+
         Vector3 move = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
         controller.Move(move * Time.deltaTime * playerSpeed);
 
         velocity.y += gravity *Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-
-        Look();
 
     }
 
