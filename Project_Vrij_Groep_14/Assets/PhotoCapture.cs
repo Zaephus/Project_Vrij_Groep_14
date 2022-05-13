@@ -5,12 +5,23 @@ using UnityEngine.UI;
 
 public class PhotoCapture : MonoBehaviour
 {
+    [Header("Camera Parameters")]
+    [SerializeField] float cameraCooldownLength;
+    [SerializeField] bool cameraTimerOn;
+    [SerializeField] float cameraTimerLength;
+    float cameraCooldown;
+    float cameraTimer;
+    public bool cameraOn;
+    
     [Header("Photo Taker")]
     [SerializeField] Image photoDisplayArea;
     [SerializeField] GameObject photoFrame;
 
     Texture2D screenCapture;
     bool viewingPhoto;
+
+    [Header("Animation")]
+    [SerializeField] Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -21,17 +32,43 @@ public class PhotoCapture : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //camera aanzetten
+        if (Input.GetKey(KeyCode.B) && cameraCooldown <= 0)
+        {
+            cameraOn = true;
+        }
+        else
+        {
+            cameraOn = false;
+        }
+
+        //foto nemen
         if (Input.GetMouseButtonDown(0))
         {
-            if (!viewingPhoto)
+            if (!viewingPhoto && cameraOn)
             {
-                StartCoroutine(CapturePhoto());
+                if (!cameraTimerOn)
+                {
+                    StartCoroutine(CapturePhoto());
+                }
+                else
+                {
+                    if (cameraTimer <= 0)
+                    {
+                        StartCoroutine(CapturePhoto());
+                    }
+                }
             }
             else
             {
                 RemovePhoto();
             }
         }
+
+        cameraCooldown -= Time.deltaTime;
+        cameraTimer -= Time.deltaTime;
+
+        animator.SetBool("CameraOn", cameraOn);
     }
 
 
@@ -46,6 +83,7 @@ public class PhotoCapture : MonoBehaviour
         screenCapture.ReadPixels(regionToRead, 0, 0, false);
         screenCapture.Apply();
         ShowPhoto();
+        cameraOn = false;
     }
 
     void ShowPhoto()
@@ -60,6 +98,8 @@ public class PhotoCapture : MonoBehaviour
     {
         viewingPhoto = false;
         photoFrame.SetActive(false);
+        cameraTimer = cameraTimerLength;
+        cameraCooldown = cameraCooldownLength;
     }
 
 }
