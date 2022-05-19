@@ -244,7 +244,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitDuration: 1
-  timer: 0
 --- !u!114 &711730449561518973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,13 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ff11b5773d2114ca4016daa0a00e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  currentWaypointIndex: -1
-  targetWaypoint: {fileID: 0}
+  waypoints: []
 --- !u!1 &711730449738701652
 GameObject:
   m_ObjectHideFlags: 0

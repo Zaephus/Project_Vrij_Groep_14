@@ -9,8 +9,8 @@ public class PatrolState : BaseState {
     private NavMeshAgent navMeshAgent;
 
     public List<Transform> waypoints = new List<Transform>();
-    [SerializeField] private int currentWaypointIndex = -1;
-    [SerializeField] private Transform targetWaypoint;
+    private int currentWaypointIndex = -1;
+    private Transform targetWaypoint;
 
     public override void OnEnter() {
 

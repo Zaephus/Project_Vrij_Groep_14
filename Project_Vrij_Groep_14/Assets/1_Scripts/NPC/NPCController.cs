@@ -6,11 +6,11 @@ public class NPCController : MonoBehaviour {
 
     private FSM fsm;
 
-    public void Start() {
+    public void OnStart() {
         fsm = new FSM(typeof(IdleState),GetComponents<BaseState>());
     }
 
-    public void Update() {
+    public void OnUpdate() {
         fsm.OnUpdate();
     }
     
