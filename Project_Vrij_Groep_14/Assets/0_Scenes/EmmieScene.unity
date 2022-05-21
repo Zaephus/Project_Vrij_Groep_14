@@ -276,6 +276,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1739871780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1739871782}
+  - component: {fileID: 1739871781}
+  m_Layer: 0
+  m_Name: DistrictManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1739871781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739871780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3913ea5dbf5114f83a965d22b3c7e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  districts: []
+  glassPanels: []
+--- !u!4 &1739871782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739871780}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.288616, y: -12.481019, z: -6.344412}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2071379489
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,6 +724,174 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fb29afbf66952b4698af76947fb6b54, type: 3}
+--- !u!1 &2066657653893542391 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2066657654822020906, guid: 6fb29afbf66952b4698af76947fb6b54, type: 3}
+  m_PrefabInstance: {fileID: 2066657653893542390}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2066657653893542392 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2066657654559427769, guid: 6fb29afbf66952b4698af76947fb6b54, type: 3}
+  m_PrefabInstance: {fileID: 2066657653893542390}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2066657653893542393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2066657654121690088, guid: 6fb29afbf66952b4698af76947fb6b54, type: 3}
+  m_PrefabInstance: {fileID: 2066657653893542390}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2066657653893542394 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2066657653159532150, guid: 6fb29afbf66952b4698af76947fb6b54, type: 3}
+  m_PrefabInstance: {fileID: 2066657653893542390}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2066657653893542395 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2066657653560709501, guid: 6fb29afbf66952b4698af76947fb6b54, type: 3}
+  m_PrefabInstance: {fileID: 2066657653893542390}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2066657653893542396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2066657652983288977, guid: 6fb29afbf66952b4698af76947fb6b54, type: 3}
+  m_PrefabInstance: {fileID: 2066657653893542390}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2066657653893542397 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2066657653155994481, guid: 6fb29afbf66952b4698af76947fb6b54, type: 3}
+  m_PrefabInstance: {fileID: 2066657653893542390}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2066657653893542398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2066657653633439556, guid: 6fb29afbf66952b4698af76947fb6b54, type: 3}
+  m_PrefabInstance: {fileID: 2066657653893542390}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2066657653893542399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066657653893542391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b18d7bc33f4ce4d826e24c6ce817f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStatus: 1
+  curseStatus: 1
+  districtPuzzle: {fileID: 0}
+  districtDoor: {fileID: 0}
+--- !u!114 &2066657653893542400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066657653893542392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b18d7bc33f4ce4d826e24c6ce817f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStatus: 1
+  curseStatus: 1
+  districtPuzzle: {fileID: 0}
+  districtDoor: {fileID: 0}
+--- !u!114 &2066657653893542401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066657653893542393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b18d7bc33f4ce4d826e24c6ce817f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStatus: 1
+  curseStatus: 1
+  districtPuzzle: {fileID: 0}
+  districtDoor: {fileID: 0}
+--- !u!114 &2066657653893542402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066657653893542394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b18d7bc33f4ce4d826e24c6ce817f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStatus: 1
+  curseStatus: 1
+  districtPuzzle: {fileID: 0}
+  districtDoor: {fileID: 0}
+--- !u!114 &2066657653893542403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066657653893542395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b18d7bc33f4ce4d826e24c6ce817f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStatus: 1
+  curseStatus: 1
+  districtPuzzle: {fileID: 0}
+  districtDoor: {fileID: 0}
+--- !u!114 &2066657653893542404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066657653893542396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b18d7bc33f4ce4d826e24c6ce817f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStatus: 1
+  curseStatus: 1
+  districtPuzzle: {fileID: 0}
+  districtDoor: {fileID: 0}
+--- !u!114 &2066657653893542405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066657653893542397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b18d7bc33f4ce4d826e24c6ce817f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStatus: 1
+  curseStatus: 1
+  districtPuzzle: {fileID: 0}
+  districtDoor: {fileID: 0}
+--- !u!114 &2066657653893542406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066657653893542398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b18d7bc33f4ce4d826e24c6ce817f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStatus: 1
+  curseStatus: 1
+  districtPuzzle: {fileID: 0}
+  districtDoor: {fileID: 0}
 --- !u!1001 &3087917756409581404
 PrefabInstance:
   m_ObjectHideFlags: 0
