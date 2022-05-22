@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour {
     public float runSpeed = 6;
     public float jumpHeight = 3;
 
+    private float horizontalInput;
+    private float verticalInput;
+
     [Range(100,200)]
     public float mouseSensitivityX = 100;
     [Range(100,200)]
@@ -20,6 +23,8 @@ public class PlayerController : MonoBehaviour {
     float xRotation = 0;
 
     private CharacterController controller;
+    public Animator animator;
+    public Transform playerCamera;
     public Transform playerHead;
     public Transform playerBody;
 
@@ -30,11 +35,24 @@ public class PlayerController : MonoBehaviour {
 
     public void OnUpdate() {
 
+        horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
+
+        animator.SetFloat("Forward",verticalInput);
+        animator.SetFloat("Right",horizontalInput);
+
         if(IsOnGround() && velocity.y < 0) {
             velocity.y = -1f;
         }
 
-        if(Input.GetButton("Sprint")) {
+        if(playerSpeed > walkSpeed) {
+            animator.SetBool("IsSprinting",true);
+        }
+        else {
+            animator.SetBool("IsSprinting",false);
+        }
+
+        if(Input.GetButton("Sprint") && (horizontalInput != 0 || verticalInput != 0)) {
             playerSpeed = runSpeed;
         }
         else {
@@ -43,7 +61,12 @@ public class PlayerController : MonoBehaviour {
 
         if(Input.GetButtonDown("Jump") && IsOnGround()) {
             velocity.y += Mathf.Sqrt(jumpHeight*-3*gravity);
+            animator.SetTrigger("IsJumping");
         }
+
+        // if() {
+        //     animator.SetBool("IsJumping",false);
+        // }
 
         Move();
         Look();
@@ -52,7 +75,7 @@ public class PlayerController : MonoBehaviour {
 
     public void Move() {
 
-        Vector3 move = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
+        Vector3 move = transform.right * horizontalInput + transform.forward * verticalInput;
         controller.Move(move * Time.deltaTime * playerSpeed);
 
         velocity.y += gravity *Time.deltaTime;
@@ -68,7 +91,9 @@ public class PlayerController : MonoBehaviour {
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation,-20,45);
 
-        playerHead.localRotation = Quaternion.Euler(xRotation,0,0);
+        playerCamera.localRotation = Quaternion.Euler(xRotation,0,0);
+        //The head is on a different axis
+        playerHead.localRotation = Quaternion.Euler(0,xRotation,0);
         playerBody.Rotate(Vector3.up * mouseX);
 
     }
