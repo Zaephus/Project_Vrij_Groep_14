@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour {
     public float runSpeed = 6;
     public float jumpHeight = 3;
 
+    public bool canMove = true;
+
     private float horizontalInput;
     private float verticalInput;
 
@@ -35,8 +37,11 @@ public class PlayerController : MonoBehaviour {
 
     public void OnUpdate() {
 
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        if (canMove)
+        {
+            horizontalInput = Input.GetAxis("Horizontal");
+            verticalInput = Input.GetAxis("Vertical");
+        }
 
         animator.SetFloat("Forward",verticalInput);
         animator.SetFloat("Right",horizontalInput);
@@ -59,7 +64,7 @@ public class PlayerController : MonoBehaviour {
             playerSpeed = walkSpeed;
         }
 
-        if(Input.GetButtonDown("Jump") && IsOnGround()) {
+        if(Input.GetButtonDown("Jump") && IsOnGround() && canMove) {
             velocity.y += Mathf.Sqrt(jumpHeight*-3*gravity);
             animator.SetTrigger("IsJumping");
         }
