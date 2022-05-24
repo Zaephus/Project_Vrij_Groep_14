@@ -87,7 +87,6 @@ GameObject:
   - component: {fileID: 192711600942741766}
   - component: {fileID: 192711600942741767}
   - component: {fileID: 192711600942741768}
-  - component: {fileID: 7009356203346405828}
   m_Layer: 5
   m_Name: Menu_Prefab
   m_TagString: Untagged
@@ -181,20 +180,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7009356203346405828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 192711600942741769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f7ec56614aca904e862cb869020fe36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameState: 0
-  pauzeCanvas: {fileID: 192711600942741769}
 --- !u!1 &192711601028868326
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +432,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7009356203346405828}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: OnResume
         m_Mode: 2
@@ -740,7 +725,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dad2cb5763fff9f4cb7603696e04984b, type: 3}
   - {fileID: 21300000, guid: c1ed0a8bd148fed46b75a4969e828986, type: 3}
   - {fileID: 21300000, guid: 1115e7d794b957941b82ded678ae03cc, type: 3}
-  interactable: 1
+  interactable: 0
   enableShadowEffect: 1
   currentPage: 0
   ClippingPlane: {fileID: 192711601941749666}
@@ -767,11 +752,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mode: 0
-  PageFlipTime: 0.5
+  PageFlipTime: 1
   TimeBetweenPages: 1
   DelayBeforeStarting: 0
   AutoStartFlip: 0
-  ControledBook: {fileID: 0}
+  ControledBook: {fileID: 192711601941683616}
   AnimationFramesCount: 40
 --- !u!1 &192711601935630440
 GameObject:

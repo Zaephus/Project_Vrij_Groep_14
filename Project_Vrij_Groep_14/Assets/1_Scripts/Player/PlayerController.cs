@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
     public float gravity = -9.81f;
 
@@ -18,9 +17,9 @@ public class PlayerController : MonoBehaviour {
     private float horizontalInput;
     private float verticalInput;
 
-    [Range(100,200)]
+    [Range(100, 200)]
     public float mouseSensitivityX = 100;
-    [Range(100,200)]
+    [Range(100, 200)]
     public float mouseSensitivityY = 100;
     float xRotation = 0;
 
@@ -30,42 +29,47 @@ public class PlayerController : MonoBehaviour {
     public Transform playerHead;
     public Transform playerBody;
 
-    public void OnStart() {
+    public void OnStart()
+    {
         controller = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    public void OnUpdate() {
+    public void OnUpdate()
+    {
 
-        if (canMove)
+        horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
+
+        animator.SetFloat("Forward", verticalInput);
+        animator.SetFloat("Right", horizontalInput);
+
+        if (IsOnGround() && velocity.y < 0)
         {
-            horizontalInput = Input.GetAxis("Horizontal");
-            verticalInput = Input.GetAxis("Vertical");
-        }
-
-        animator.SetFloat("Forward",verticalInput);
-        animator.SetFloat("Right",horizontalInput);
-
-        if(IsOnGround() && velocity.y < 0) {
             velocity.y = -1f;
         }
 
-        if(playerSpeed > walkSpeed) {
-            animator.SetBool("IsSprinting",true);
+        if (playerSpeed > walkSpeed)
+        {
+            animator.SetBool("IsSprinting", true);
         }
-        else {
-            animator.SetBool("IsSprinting",false);
+        else
+        {
+            animator.SetBool("IsSprinting", false);
         }
 
-        if(Input.GetButton("Sprint") && (horizontalInput != 0 || verticalInput != 0)) {
+        if (Input.GetButton("Sprint") && (horizontalInput != 0 || verticalInput != 0))
+        {
             playerSpeed = runSpeed;
         }
-        else {
+        else
+        {
             playerSpeed = walkSpeed;
         }
 
-        if(Input.GetButtonDown("Jump") && IsOnGround() && canMove) {
-            velocity.y += Mathf.Sqrt(jumpHeight*-3*gravity);
+        if (Input.GetButtonDown("Jump") && IsOnGround() && canMove)
+        {
+            velocity.y += Mathf.Sqrt(jumpHeight * -3 * gravity);
             animator.SetTrigger("IsJumping");
         }
 
@@ -73,40 +77,47 @@ public class PlayerController : MonoBehaviour {
         //     animator.SetBool("IsJumping",false);
         // }
 
-        Move();
-        Look();
+        if (canMove)
+        {
+            Move();
+            Look();
+
+        }
 
     }
 
-    public void Move() {
+    public void Move()
+    {
 
         Vector3 move = transform.right * horizontalInput + transform.forward * verticalInput;
         controller.Move(move * Time.deltaTime * playerSpeed);
 
-        velocity.y += gravity *Time.deltaTime;
+        velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
     }
 
-    public void Look() {
+    public void Look()
+    {
 
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
 
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation,-20,45);
+        xRotation = Mathf.Clamp(xRotation, -20, 45);
 
         //playerCamera.localRotation = Quaternion.Euler(xRotation,0,0);
         //The head is on a different axis
-        playerHead.localRotation = Quaternion.Euler(xRotation,0,0);
+        playerHead.localRotation = Quaternion.Euler(xRotation, 0, 0);
         playerBody.Rotate(Vector3.up * mouseX);
 
     }
 
-    public bool IsOnGround() {
+    public bool IsOnGround()
+    {
         float radius = 0.09f;
         LayerMask terrainMask = LayerMask.GetMask("Terrain");
 
-        return Physics.CheckSphere(this.transform.position,radius,terrainMask);
+        return Physics.CheckSphere(this.transform.position, radius, terrainMask);
     }
 }

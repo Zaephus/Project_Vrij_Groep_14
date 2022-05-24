@@ -50,24 +50,22 @@ public class MenuManager : MonoBehaviour
 
     void PlayBehaviour()
     {
-        Time.timeScale = 1f;
+        // Time.timeScale = 1f;
+        FindObjectOfType<PlayerController>().canMove = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     void MainMenuBehaviour()
     {
-        Time.timeScale = 1f;
+       // Time.timeScale = 1f;
         Cursor.visible = true;
     }
 
     void PauseBehaviour()
     {
-        Time.timeScale = 0f;
-        if (GetComponent<PlayerManager>())
-        {
-           FindObjectOfType<PlayerController>().canMove = false;
-        }
+        //Time.timeScale = 0f;
+        FindObjectOfType<PlayerController>().canMove = false;
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
@@ -93,11 +91,6 @@ public class MenuManager : MonoBehaviour
     {
         canvas.SetActive(false);
         gameState = GameState.Play;
-
-        if (GetComponent<PlayerManager>())
-        {
-            FindObjectOfType<PlayerController>().canMove = true;
-        }
     }
 
     public void QuitGame()
