@@ -18,7 +18,7 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] GameObject photoFrame;
 
     Texture2D screenCapture;
-    bool viewingPhoto;
+    public bool viewingPhoto;
 
     [Header("Animation")]
     [SerializeField] Animator animator;
@@ -90,11 +90,20 @@ public class PhotoCapture : MonoBehaviour
     {
         Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0, 0, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100);
         photoDisplayArea.sprite = photoSprite;
-
         photoFrame.SetActive(true);
+
+        SavePhoto(photoSprite);
     }
 
-    void RemovePhoto()
+    public void SavePhoto(Sprite photo)
+    {
+        GameObject photoAlbumUI = FindObjectOfType<PhotoAlbumUI>().gameObject;
+        GameObject photoToAdd = Instantiate(new GameObject(), photoAlbumUI.transform);
+        photoToAdd.AddComponent<SpriteRenderer>().sprite = photo;
+        photoAlbumUI.GetComponent<PhotoAlbumUI>().photoAlbum.AddPhoto(photoToAdd.GetComponent<SpriteRenderer>().sprite);
+    }
+
+    public void RemovePhoto()
     {
         viewingPhoto = false;
         photoFrame.SetActive(false);

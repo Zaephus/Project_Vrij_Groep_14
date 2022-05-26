@@ -22,7 +22,7 @@ public class MenuManager : MonoBehaviour
     {
         CheckState();
 
-        if (Input.GetKeyDown(KeyCode.Backspace))
+        if (Input.GetKeyDown(KeyCode.Backspace) && (FindObjectOfType<PhotoCapture>().cameraOn == false && FindObjectOfType<PhotoCapture>().viewingPhoto == false))
         {
             OnPause();
         }
