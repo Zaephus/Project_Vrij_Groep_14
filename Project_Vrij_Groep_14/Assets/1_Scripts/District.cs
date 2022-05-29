@@ -9,25 +9,30 @@ public class District : MonoBehaviour
     public Curse curseStatus;
 
     public Puzzle districtPuzzle;
-    public GameObject districtDoor;
+    public Gate districtGate;
 
     public District[] nextDistrict;
 
-    public void OnUpdate()
+    public void Update()
     {
         switch (currentStatus)
         {
             case Status.Closed:
-
-                //deur dicht
                 break;
             case Status.Open:
-
-                //deur open
                 break;
         }
-    }
 
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            OpenGate();
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            CloseGate();
+        }
+    }
 
     //event van maken??
     public void CheckCurse()
@@ -36,6 +41,16 @@ public class District : MonoBehaviour
         {
             //layer aanpassen ofzo?? even afwachten wat er volgens GDES moet gebeuren
         }
+    }
+
+    public void OpenGate()
+    {
+        districtGate.Open();
+    }
+
+    public void CloseGate()
+    {
+        districtGate.Close();
     }
 }
 

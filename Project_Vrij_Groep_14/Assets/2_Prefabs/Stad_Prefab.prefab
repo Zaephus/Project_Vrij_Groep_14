@@ -102,7 +102,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2066657652983288990}
-  - component: {fileID: 2066657653893542404}
   m_Layer: 7
   m_Name: District 2 - Haven
   m_TagString: Untagged
@@ -149,23 +148,6 @@ Transform:
   m_Father: {fileID: 2066657653254958931}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2066657653893542404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066657652983288977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b18d7bc33f4ce4d826e24c6ce817f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentStatus: 1
-  curseStatus: 1
-  districtPuzzle: {fileID: 0}
-  districtDoor: {fileID: 0}
-  nextDistrict: []
 --- !u!1 &2066657653078184539
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +250,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2066657653155994494}
-  - component: {fileID: 2066657653893542405}
   m_Layer: 7
   m_Name: District 1 - Vuilnisbelt
   m_TagString: Untagged
@@ -300,23 +281,6 @@ Transform:
   m_Father: {fileID: 2066657653254958931}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2066657653893542405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066657653155994481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b18d7bc33f4ce4d826e24c6ce817f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentStatus: 1
-  curseStatus: 1
-  districtPuzzle: {fileID: 0}
-  districtDoor: {fileID: 0}
-  nextDistrict: []
 --- !u!1 &2066657653159532150
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,7 +290,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2066657653159532151}
-  - component: {fileID: 2066657653893542402}
   m_Layer: 7
   m_Name: District 4 - Uptown
   m_TagString: Untagged
@@ -366,23 +329,6 @@ Transform:
   m_Father: {fileID: 2066657653254958931}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2066657653893542402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066657653159532150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b18d7bc33f4ce4d826e24c6ce817f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentStatus: 1
-  curseStatus: 1
-  districtPuzzle: {fileID: 0}
-  districtDoor: {fileID: 0}
-  nextDistrict: []
 --- !u!1 &2066657653159671231
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,7 +623,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2066657653560709498}
-  - component: {fileID: 2066657653893542403}
   m_Layer: 7
   m_Name: District 3 - Farm
   m_TagString: Untagged
@@ -706,23 +651,6 @@ Transform:
   m_Father: {fileID: 2066657653254958931}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2066657653893542403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066657653560709501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b18d7bc33f4ce4d826e24c6ce817f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentStatus: 1
-  curseStatus: 1
-  districtPuzzle: {fileID: 0}
-  districtDoor: {fileID: 0}
-  nextDistrict: []
 --- !u!1 &2066657653633439556
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,7 +660,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2066657653633439557}
-  - component: {fileID: 2066657653893542406}
   m_Layer: 7
   m_Name: District 0 - Entree
   m_TagString: Untagged
@@ -766,23 +693,6 @@ Transform:
   m_Father: {fileID: 2066657653254958931}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2066657653893542406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066657653633439556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b18d7bc33f4ce4d826e24c6ce817f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentStatus: 1
-  curseStatus: 1
-  districtPuzzle: {fileID: 0}
-  districtDoor: {fileID: 0}
-  nextDistrict: []
 --- !u!1 &2066657653683010061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,7 +922,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2066657654121690089}
-  - component: {fileID: 2066657653893542401}
   m_Layer: 7
   m_Name: District 5 - Shopping
   m_TagString: Untagged
@@ -1071,23 +980,6 @@ Transform:
   m_Father: {fileID: 2066657653254958931}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2066657653893542401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066657654121690088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b18d7bc33f4ce4d826e24c6ce817f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentStatus: 1
-  curseStatus: 1
-  districtPuzzle: {fileID: 0}
-  districtDoor: {fileID: 0}
-  nextDistrict: []
 --- !u!1 &2066657654173459451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,7 +1124,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2066657654559427750}
-  - component: {fileID: 2066657653893542400}
   m_Layer: 7
   m_Name: District 6 - Woonwijk
   m_TagString: Untagged
@@ -1297,23 +1188,6 @@ Transform:
   m_Father: {fileID: 2066657653254958931}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2066657653893542400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066657654559427769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b18d7bc33f4ce4d826e24c6ce817f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentStatus: 1
-  curseStatus: 1
-  districtPuzzle: {fileID: 0}
-  districtDoor: {fileID: 0}
-  nextDistrict: []
 --- !u!1 &2066657654636237736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,7 +1307,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2066657654822020907}
-  - component: {fileID: 2066657653893542399}
   m_Layer: 7
   m_Name: District 7 - Kerk
   m_TagString: Untagged
@@ -1468,23 +1341,6 @@ Transform:
   m_Father: {fileID: 2066657653254958931}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2066657653893542399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066657654822020906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b18d7bc33f4ce4d826e24c6ce817f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentStatus: 1
-  curseStatus: 1
-  districtPuzzle: {fileID: 0}
-  districtDoor: {fileID: 0}
-  nextDistrict: []
 --- !u!1 &7888013550300045924
 GameObject:
   m_ObjectHideFlags: 0

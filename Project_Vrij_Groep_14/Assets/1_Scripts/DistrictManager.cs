@@ -13,14 +13,14 @@ public class DistrictManager : MonoBehaviour
         districts.AddRange(FindObjectsOfType<District>());              //zoekt alle districts en voegt toe aan lijst
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        for(int i = 0; i<districts.Count; i++)
-        {
-            districts[i].OnUpdate();                                    //update alle districts
-        }
-    }
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    for(int i = 0; i<districts.Count; i++)
+    //    {
+    //        districts[i].OnUpdate();                                    //update alle districts
+    //    }
+    //}
 
 
     //functie om uit te roepen wanneer glas in lood gefixt
@@ -30,6 +30,7 @@ public class DistrictManager : MonoBehaviour
         {
             district.curseStatus = District.Curse.Lifted;
             district.CheckCurse();
+            PlayCutscene(district);
 
             foreach(District next in district.nextDistrict)
             {
@@ -38,5 +39,10 @@ public class DistrictManager : MonoBehaviour
         }
 
         return;
+    }
+
+    void PlayCutscene(District target)
+    {
+
     }
 }
