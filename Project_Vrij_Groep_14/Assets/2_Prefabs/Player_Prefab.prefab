@@ -2406,6 +2406,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 557043093957356104, guid: 649c3346ff820f447a159da56b3c631c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0036621094
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773727871397853789, guid: 649c3346ff820f447a159da56b3c631c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2885205259246324938, guid: 649c3346ff820f447a159da56b3c631c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2450,14 +2458,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6778469621601526204, guid: 649c3346ff820f447a159da56b3c631c, type: 3}
+    - target: {fileID: 6778469620511937785, guid: 649c3346ff820f447a159da56b3c631c, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778469621253175794, guid: 649c3346ff820f447a159da56b3c631c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778469621601526204, guid: 649c3346ff820f447a159da56b3c631c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9102350267730401400, guid: 649c3346ff820f447a159da56b3c631c, type: 3}
       propertyPath: photoAlbum
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: cc1d76745b5145648bd8ecafc4e87254, type: 2}
     - target: {fileID: 9102350267730401400, guid: 649c3346ff820f447a159da56b3c631c, type: 3}
       propertyPath: itemSlotTemplate
       value: 
