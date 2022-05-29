@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9fa2ef330bb9e418f24db54e3c776d, type: 3}
   m_Name: DialogueOption2
   m_EditorClassIdentifier: 
-  dialogue: 
+  dialogue: Hoi ik ben ook dialoog
   nextDialogueOption: {fileID: 0}
-  endBreak: 0
+  endBreak: 1

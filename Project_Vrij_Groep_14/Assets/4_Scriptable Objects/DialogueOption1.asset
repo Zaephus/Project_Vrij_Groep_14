@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DialogueOption1
   m_EditorClassIdentifier: 
   dialogue: Hoi ik ben dialoog
-  nextDialogueOption: {fileID: 0}
+  nextDialogueOption: {fileID: 11400000, guid: 1a465c92a1e61504299c366a4f16486b, type: 2}
   endBreak: 0
