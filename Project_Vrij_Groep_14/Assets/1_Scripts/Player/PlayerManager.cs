@@ -7,12 +7,12 @@ public class PlayerManager : MonoBehaviour {
     public PlayerController playerController;
     public PlayerInteract playerInteract;
 
-    public void Start() {
+    public void OnStart() {
         playerController.OnStart();
         playerInteract.OnStart(this);
     }
 
-    public void Update() {
+    public void OnUpdate() {
         playerController.OnUpdate();
         playerInteract.OnUpdate();
     }
