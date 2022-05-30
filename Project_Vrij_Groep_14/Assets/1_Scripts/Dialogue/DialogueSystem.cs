@@ -6,7 +6,7 @@ using TMPro;
 
 public class DialogueSystem : MonoBehaviour {
 
-    public Image dialoguePanel;
+    public GameObject dialoguePanel;
     public TMP_Text dialogueText;
 
     private DialogueOption currentDialogueOption;
@@ -15,12 +15,13 @@ public class DialogueSystem : MonoBehaviour {
     public float timeBetweenChars = 0.1f;
 
     public void Initialize(DialogueOption d) {
+        
+        dialoguePanel.SetActive(true);
+        dialogueText.text = "";
+        Debug.Log("Initialized dialoguesystem");
 
         currentDialogueOption = d;
         StartCoroutine(TypeWriter(currentDialogueOption.dialogue));
-
-        dialoguePanel.enabled = true;
-        dialogueText.text = "";
 
     }
 
@@ -41,10 +42,11 @@ public class DialogueSystem : MonoBehaviour {
 
     public IEnumerator TypeWriter(string dialogue) {
 
+        dialogueText.text = "";
         yield return new WaitForSeconds(delayBeforeStart);
 
         foreach(char c in dialogue) {
-            //...
+            dialogueText.text += c;
             yield return new WaitForSeconds(0.2f);
         }
 
@@ -54,7 +56,7 @@ public class DialogueSystem : MonoBehaviour {
     }
 
     public void EndDialogue() {
-        dialoguePanel.enabled = false;
+        dialoguePanel.SetActive(false);
     }
 
 }

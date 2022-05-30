@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCController : MonoBehaviour {
+public class NPCController : MonoBehaviour,IInteractable {
 
     public Animator animator;
 
@@ -14,6 +14,8 @@ public class NPCController : MonoBehaviour {
     private Transform targetWaypoint;
 
     public float stoppingDistance;
+
+    public DialogueOption dialogueOption;
 
     public void OnStart() {
 
@@ -51,6 +53,10 @@ public class NPCController : MonoBehaviour {
         Quaternion rotation = Quaternion.LookRotation(lookPos);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation,rotateSpeed*Time.deltaTime);
 
+    }
+
+    public void Interact(PlayerManager p) {
+        Manager.instance.StartDialogue(dialogueOption);
     }
 
 }

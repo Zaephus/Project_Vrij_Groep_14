@@ -8,6 +8,15 @@ public class Manager : MonoBehaviour {
     private NPCManager npcManager;
     private DialogueSystem dialogueSystem;
 
+    #region Singleton
+    public static Manager instance;
+
+    void Awake() {
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
+    }
+    #endregion
+
     public void Start() {
 
         playerManager = FindObjectOfType<PlayerManager>();
@@ -24,5 +33,10 @@ public class Manager : MonoBehaviour {
         playerManager.OnUpdate();
         npcManager.OnUpdate();
         
+    }
+
+    public void StartDialogue(DialogueOption d) {
+        Debug.Log("Started Dialogue from manager");
+        dialogueSystem.Initialize(d);
     }
 }
