@@ -13,43 +13,22 @@ public class District : MonoBehaviour
 
     public District[] nextDistrict;
 
-    public void Update()
-    {
-        switch (currentStatus)
-        {
-            case Status.Closed:
-                break;
-            case Status.Open:
-                break;
-        }
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            OpenGate();
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            CloseGate();
-        }
-    }
-
     //event van maken??
-    public void CheckCurse()
+    public void BreakCurse()
     {
-        if (curseStatus == Curse.Lifted)
-        {
-            //layer aanpassen ofzo?? even afwachten wat er volgens GDES moet gebeuren
-        }
+        curseStatus = Curse.Lifted;
+        //layer aanpassen ofzo?? even afwachten wat er volgens GDES moet gebeuren
     }
 
     public void OpenGate()
     {
+        currentStatus = Status.Open;
         districtGate.Open();
     }
 
     public void CloseGate()
     {
+        currentStatus = Status.Closed;
         districtGate.Close();
     }
 }

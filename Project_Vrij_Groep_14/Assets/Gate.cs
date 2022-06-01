@@ -7,11 +7,11 @@ public class Gate : MonoBehaviour
     public Animator animator;
     public void Open()
     {
-        animator.SetTrigger("Open");
+        animator.SetBool("Open", true);
     }
 
     public void Close()
     {
-        animator.SetTrigger("Close");
+        animator.SetBool("Open", false);
     }
 }
