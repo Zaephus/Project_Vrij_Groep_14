@@ -71,7 +71,6 @@ public class PhotoCapture : MonoBehaviour
         animator.SetBool("CameraOn", cameraOn);
     }
 
-
     //enum en coroutine zodat het zeker is dat alle items in beeld zijn geladen voordat de foto wordt genomen
     IEnumerator CapturePhoto()
     {
@@ -100,7 +99,7 @@ public class PhotoCapture : MonoBehaviour
         GameObject photoAlbumUI = FindObjectOfType<PhotoAlbumUI>().gameObject;
         GameObject photoToAdd = Instantiate(new GameObject(), photoAlbumUI.transform);
         photoToAdd.AddComponent<SpriteRenderer>().sprite = photo;
-        photoAlbumUI.GetComponent<PhotoAlbumUI>().photoAlbum.AddPhoto(photoToAdd.GetComponent<SpriteRenderer>().sprite);
+        photoAlbumUI.GetComponent<PhotoAlbumUI>().photoAlbum.AddPhoto(photo);
     }
 
     public void RemovePhoto()
