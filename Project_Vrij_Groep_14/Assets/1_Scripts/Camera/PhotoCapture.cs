@@ -33,12 +33,12 @@ public class PhotoCapture : MonoBehaviour
     void Update()
     {
         //camera aanzetten
-        if (Input.GetKey(KeyCode.B) && cameraCooldown <= 0)
+        if (Input.GetMouseButtonDown(1) && cameraCooldown <= 0)
         {
-            cameraOn = true;
-        }
-        else
-        {
+            if (!cameraOn)
+            {
+                cameraOn = true;
+            }
             cameraOn = false;
         }
 
