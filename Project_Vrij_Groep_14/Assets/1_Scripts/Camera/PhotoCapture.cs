@@ -16,9 +16,14 @@ public class PhotoCapture : MonoBehaviour
     [Header("Photo Taker")]
     [SerializeField] Image photoDisplayArea;
     [SerializeField] GameObject photoFrame;
-
+    
     Texture2D screenCapture;
     public bool viewingPhoto;
+
+    [Header ("Photo Holding")]
+    [SerializeField] Image photoholdDisplayArea;
+    [SerializeField] GameObject photoholdFrame;
+
 
     [Header("Animation")]
     [SerializeField] Animator animator;
@@ -33,13 +38,16 @@ public class PhotoCapture : MonoBehaviour
     void Update()
     {
         //camera aanzetten
-        if (Input.GetMouseButtonDown(1) && cameraCooldown <= 0)
+        if (Input.GetMouseButtonDown(1))
         {
             if (!cameraOn)
             {
                 cameraOn = true;
             }
-            cameraOn = false;
+            else
+            {
+                cameraOn = false;
+            }
         }
 
         //foto nemen
@@ -47,21 +55,7 @@ public class PhotoCapture : MonoBehaviour
         {
             if (!viewingPhoto && cameraOn)
             {
-                if (!cameraTimerOn)
-                {
-                    StartCoroutine(CapturePhoto());
-                }
-                else
-                {
-                    if (cameraTimer <= 0)
-                    {
-                        StartCoroutine(CapturePhoto());
-                    }
-                }
-            }
-            else
-            {
-                RemovePhoto();
+               StartCoroutine(CapturePhoto());
             }
         }
 
@@ -91,15 +85,23 @@ public class PhotoCapture : MonoBehaviour
         photoDisplayArea.sprite = photoSprite;
         photoFrame.SetActive(true);
 
-        SavePhoto(photoSprite);
+        FindObjectOfType<MenuManager>().gameState = MenuManager.GameState.Pause;
+
     }
 
-    public void SavePhoto(Sprite photo)
+    public void SavePhoto()
     {
-        GameObject photoAlbumUI = FindObjectOfType<PhotoAlbumUI>().gameObject;
-        GameObject photoToAdd = Instantiate(new GameObject(), photoAlbumUI.transform);
-        photoToAdd.AddComponent<SpriteRenderer>().sprite = photo;
-        photoAlbumUI.GetComponent<PhotoAlbumUI>().photoAlbum.AddPhoto(photo);
+        MenuManager photoAlbumUI = FindObjectOfType<MenuManager>();
+        photoAlbumUI.photoDisplayArea.sprite = photoDisplayArea.sprite;
+        photoholdFrame.SetActive(false);
+        RemovePhoto();
+    }
+
+    public void HoldPhoto()
+    {
+        photoholdDisplayArea.sprite = photoDisplayArea.sprite;
+        photoholdFrame.SetActive(true);
+        RemovePhoto();
     }
 
     public void RemovePhoto()
@@ -108,6 +110,7 @@ public class PhotoCapture : MonoBehaviour
         photoFrame.SetActive(false);
         cameraTimer = cameraTimerLength;
         cameraCooldown = cameraCooldownLength;
+        FindObjectOfType<MenuManager>().gameState = MenuManager.GameState.Play;
     }
 
 }

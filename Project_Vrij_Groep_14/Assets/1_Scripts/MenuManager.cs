@@ -9,6 +9,8 @@ public class MenuManager : MonoBehaviour
 
     public GameObject pauzeCanvas;
 
+    public Image photoDisplayArea;
+
     private void Start()
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)

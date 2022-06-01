@@ -25,7 +25,7 @@ public class PhotoAlbumUI : MonoBehaviour
 
     void PhotoAlbum_OnPhotoListChanged(object sender, System.EventArgs e)
     {
-        RefreshPhotoAlbum();
+        //RefreshPhotoAlbum();
     }
 
     void RefreshPhotoAlbum()
