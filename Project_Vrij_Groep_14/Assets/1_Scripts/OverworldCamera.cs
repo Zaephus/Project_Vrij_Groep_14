@@ -17,6 +17,11 @@ public class OverworldCamera : MonoBehaviour, IInteractable
         Destroy(gameObject);
     }
 
+    public bool CanInteract() 
+    {
+        return true;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

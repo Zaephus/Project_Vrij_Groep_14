@@ -4,4 +4,5 @@ using UnityEngine;
 
 public interface IInteractable {
     public void Interact(PlayerManager p);
+    public bool CanInteract();
 }

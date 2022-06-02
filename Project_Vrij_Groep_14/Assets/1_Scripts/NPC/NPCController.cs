@@ -16,22 +16,34 @@ public class NPCController : MonoBehaviour,IInteractable {
     public float stoppingDistance;
 
     public DialogueOption dialogueOption;
+    public bool canInteract;
 
     public void OnStart() {
 
-        targetWaypoint = GetTargetWaypoint();
+        if(waypoints.Count != 0) {
+            targetWaypoint = GetTargetWaypoint();
+        }
+
+        if(dialogueOption == null) {
+            canInteract = false;
+        }
+
     }
 
     public void OnUpdate() {
 
-        transform.position = Vector3.MoveTowards(transform.position,targetWaypoint.position,walkSpeed*Time.deltaTime);
-        RotateTowardsTarget();
+        if(waypoints.Count !=0) {
 
-        animator.SetFloat("Forward",1);
+            transform.position = Vector3.MoveTowards(transform.position,targetWaypoint.position,walkSpeed*Time.deltaTime);
+            RotateTowardsTarget();
 
-        if(Vector3.Distance(transform.position,targetWaypoint.position) <= stoppingDistance) {
-            targetWaypoint = GetTargetWaypoint();
+            animator.SetFloat("Forward",1);
+
+            if(Vector3.Distance(transform.position,targetWaypoint.position) <= stoppingDistance) {
+                targetWaypoint = GetTargetWaypoint();
+            }
         }
+
     }
 
     public Transform GetTargetWaypoint() {
@@ -57,6 +69,15 @@ public class NPCController : MonoBehaviour,IInteractable {
 
     public void Interact(PlayerManager p) {
         Manager.instance.StartDialogue(dialogueOption);
+    }
+
+    public bool CanInteract() {
+        if(canInteract) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 }

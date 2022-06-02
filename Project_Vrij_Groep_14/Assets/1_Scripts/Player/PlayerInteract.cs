@@ -35,7 +35,7 @@ public class PlayerInteract : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other) {
         if(other.GetComponent<IInteractable>() != null) {
-            canInteract = true;
+            canInteract = other.GetComponent<IInteractable>().CanInteract();
             interactable = other.GetComponent<IInteractable>();
         }
     }

@@ -6,4 +6,8 @@ public class TestInteractable : MonoBehaviour,IInteractable {
     public void Interact(PlayerManager p) {
         Destroy(this.gameObject);
     }
+
+    public bool CanInteract() {
+        return true;
+    }
 }
