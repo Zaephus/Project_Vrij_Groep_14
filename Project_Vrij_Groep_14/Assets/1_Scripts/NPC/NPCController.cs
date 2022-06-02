@@ -9,9 +9,11 @@ public class NPCController : MonoBehaviour,IInteractable {
     public float walkSpeed = 2f;
     public float rotateSpeed = 2f;
 
-    public List<Transform> waypoints = new List<Transform>();
+    public List<Waypoint> waypoints = new List<Waypoint>();
     private int currentWaypointIndex = -1;
-    private Transform targetWaypoint;
+    private Waypoint targetWaypoint;
+
+    private bool isStopped;
 
     public float stoppingDistance;
 
@@ -32,21 +34,39 @@ public class NPCController : MonoBehaviour,IInteractable {
 
     public void OnUpdate() {
 
-        if(waypoints.Count !=0) {
+        if(waypoints.Count !=0 && !isStopped) {
 
-            transform.position = Vector3.MoveTowards(transform.position,targetWaypoint.position,walkSpeed*Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position,targetWaypoint.transform.position,walkSpeed*Time.deltaTime);
             RotateTowardsTarget();
 
             animator.SetFloat("Forward",1);
 
-            if(Vector3.Distance(transform.position,targetWaypoint.position) <= stoppingDistance) {
-                targetWaypoint = GetTargetWaypoint();
+            if(Vector3.Distance(transform.position,targetWaypoint.transform.position) <= stoppingDistance) {
+                isStopped = true;
+                if(!targetWaypoint.endPoint) {
+                    if(targetWaypoint.waitTimer > 0) {
+                        StartCoroutine(ContinueWalking(targetWaypoint.waitTimer));
+                    }
+                    else {
+                        targetWaypoint = GetTargetWaypoint();
+                        isStopped = false;
+                    }
+                }
             }
+        }
+        else {
+            animator.SetFloat("Forward",0);
         }
 
     }
 
-    public Transform GetTargetWaypoint() {
+    public IEnumerator ContinueWalking(float timer) {
+        yield return new WaitForSeconds(timer);
+        targetWaypoint = GetTargetWaypoint();
+        isStopped = false;
+    }
+
+    public Waypoint GetTargetWaypoint() {
 
         currentWaypointIndex++;
 
@@ -60,7 +80,7 @@ public class NPCController : MonoBehaviour,IInteractable {
 
     public void RotateTowardsTarget() {
 
-        Vector3 lookPos = targetWaypoint.position - transform.position;
+        Vector3 lookPos = targetWaypoint.transform.position - transform.position;
         lookPos.y = 0;
         Quaternion rotation = Quaternion.LookRotation(lookPos);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation,rotateSpeed*Time.deltaTime);
