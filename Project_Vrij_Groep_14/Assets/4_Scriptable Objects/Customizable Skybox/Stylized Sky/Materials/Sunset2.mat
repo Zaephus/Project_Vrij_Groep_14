@@ -36,3 +36,4 @@ Material:
     - _SkyGradientTop: {r: 0.06666667, g: 0.14509805, b: 0.27450982, a: 1}
     - _SunDiscColor: {r: 1, g: 0.56997967, b: 0.41176468, a: 1}
     - _SunHaloColor: {r: 1, g: 0.16911763, b: 0.16911763, a: 1}
+  m_BuildTextureStacks: []

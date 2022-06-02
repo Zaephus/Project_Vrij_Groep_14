@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,9 +25,16 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] Image photoholdDisplayArea;
     [SerializeField] GameObject photoholdFrame;
 
-
     [Header("Animation")]
     [SerializeField] Animator animator;
+
+
+    public event EventHandler OnLookThroughCamera;
+    bool firstTimeLook = false;
+
+    public event EventHandler OnTakePicture;
+    bool firstTimePicture;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +50,12 @@ public class PhotoCapture : MonoBehaviour
         {
             if (!cameraOn)
             {
+                if (!firstTimeLook)                //check of het de eerste keer is dat speler door de lens kijkt
+                {
+                    OnLookThroughCamera?.Invoke(this, EventArgs.Empty);
+                    firstTimeLook = true;
+                }
+
                 cameraOn = true;
             }
             else
@@ -55,7 +69,12 @@ public class PhotoCapture : MonoBehaviour
         {
             if (!viewingPhoto && cameraOn)
             {
-               StartCoroutine(CapturePhoto());
+                if (!firstTimePicture)                //check of het de eerste keer is dat speler een foto neemt
+                {
+                    OnTakePicture?.Invoke(this, EventArgs.Empty);
+                    firstTimePicture = true;
+                }
+                StartCoroutine(CapturePhoto());
             }
         }
 
