@@ -7,14 +7,22 @@ using TMPro;
 public class DialogueSystem : MonoBehaviour {
 
     public GameObject dialoguePanel;
+    public GameObject continueButton;
     public TMP_Text dialogueText;
 
     private DialogueOption currentDialogueOption;
 
     public float delayBeforeStart = 0f;
-    public float timeBetweenChars = 0.1f;
+    public float standardTimeBetweenChars = 0.1f;
+    private float timeBetweenChars;
+
+    public bool dialogueEnded;
 
     public void Initialize(DialogueOption d) {
+
+        FindObjectOfType<MenuManager>().gameState = MenuManager.GameState.Pause;
+
+        timeBetweenChars = standardTimeBetweenChars;
         
         dialoguePanel.SetActive(true);
         dialogueText.text = "";
@@ -34,29 +42,52 @@ public class DialogueSystem : MonoBehaviour {
             currentDialogueOption = currentDialogueOption.nextDialogueOption;
             StartCoroutine(TypeWriter(currentDialogueOption.dialogue));
         }
+
     }
 
     public void OnUpdate() {
-        //hier iets doen om door te gaan naar de volgende dialoog optie
+
+        if(dialogueEnded && !currentDialogueOption.pauseBreak) {
+            continueButton.SetActive(true); 
+        }
+        else {
+            continueButton.SetActive(false);
+        }
+
+        if(dialogueEnded && currentDialogueOption.pauseBreak) {
+            FindObjectOfType<MenuManager>().gameState = MenuManager.GameState.Play;
+        }
+
+        if(Input.GetKey("g")) {
+            timeBetweenChars = timeBetweenChars*0.75f;
+        }
+        else {
+            timeBetweenChars = standardTimeBetweenChars;
+        }
+    
     }
 
     public IEnumerator TypeWriter(string dialogue) {
 
         dialogueText.text = "";
+        dialogueEnded = false;
         yield return new WaitForSeconds(delayBeforeStart);
 
         foreach(char c in dialogue) {
             dialogueText.text += c;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(timeBetweenChars);
         }
 
         yield return new WaitForSeconds(0.35f);
-        ContinueDialogue();
+        continueButton.SetActive(true);
+        dialogueEnded = true;
 
     }
 
     public void EndDialogue() {
         dialoguePanel.SetActive(false);
+        FindObjectOfType<MenuManager>().gameState = MenuManager.GameState.Play;
+
     }
 
 }

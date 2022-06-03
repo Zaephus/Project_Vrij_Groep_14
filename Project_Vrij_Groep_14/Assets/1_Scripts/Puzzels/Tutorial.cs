@@ -19,6 +19,8 @@ public class Tutorial : Puzzle
 
     void Tutorial_OnPhotoCameraPickedUp(object sender, System.EventArgs e)
     {
+        FindObjectOfType<MenuManager>().gameState = MenuManager.GameState.Pause;
+        FindObjectOfType<DialogueSystem>().ContinueDialogue();
         Debug.Log("je hebt me opgepakt");
         //dingen die moeten gebeuren nadat je de camera op hebt gepakt
     }
