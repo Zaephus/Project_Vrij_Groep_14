@@ -47,6 +47,17 @@ public class DialogueSystem : MonoBehaviour {
 
     public void OnUpdate() {
 
+        if(dialogueEnded && !currentDialogueOption.pauseBreak) {
+            continueButton.SetActive(true); 
+        }
+        else {
+            continueButton.SetActive(false);
+        }
+
+        if(dialogueEnded && currentDialogueOption.pauseBreak) {
+            FindObjectOfType<MenuManager>().gameState = MenuManager.GameState.Play;
+        }
+
         if(Input.GetKey("g")) {
             timeBetweenChars = timeBetweenChars*0.75f;
         }
@@ -59,7 +70,7 @@ public class DialogueSystem : MonoBehaviour {
     public IEnumerator TypeWriter(string dialogue) {
 
         dialogueText.text = "";
-        continueButton.SetActive(false);
+        dialogueEnded = false;
         yield return new WaitForSeconds(delayBeforeStart);
 
         foreach(char c in dialogue) {
@@ -69,6 +80,7 @@ public class DialogueSystem : MonoBehaviour {
 
         yield return new WaitForSeconds(0.35f);
         continueButton.SetActive(true);
+        dialogueEnded = true;
 
     }
 
