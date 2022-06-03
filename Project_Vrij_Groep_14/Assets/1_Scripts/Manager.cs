@@ -32,6 +32,7 @@ public class Manager : MonoBehaviour {
 
         playerManager.OnUpdate();
         npcManager.OnUpdate();
+        dialogueSystem.OnUpdate();
         
     }
 

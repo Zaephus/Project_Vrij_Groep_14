@@ -7,8 +7,6 @@ public class DialogueOption : ScriptableObject {
 
     public string dialogue;
     public DialogueOption nextDialogueOption;
-
     public bool endBreak;
-
 
 }
