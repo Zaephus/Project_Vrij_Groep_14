@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TestInteractable : MonoBehaviour,IInteractable {
     public void Interact(PlayerManager p) {
-        Destroy(this.gameObject);
+        p.playerInteract.GrabItem();
+        //Destroy(this.gameObject);
     }
 
     public bool CanInteract() {

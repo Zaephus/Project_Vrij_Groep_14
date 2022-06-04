@@ -77,6 +77,10 @@ public class PlayerController : MonoBehaviour
         //     animator.SetBool("IsJumping",false);
         // }
 
+        if(Input.GetKeyDown("x")) {
+            animator.SetBool("IsHolding",false);
+        }
+
         if (canMove)
         {
             Move();

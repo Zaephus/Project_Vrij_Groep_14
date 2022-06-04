@@ -27,6 +27,7 @@ public class PhotoCapture : MonoBehaviour
 
     [Header("Animation")]
     [SerializeField] Animator animator;
+    [SerializeField] PlayerManager player;
 
 
     public event EventHandler OnLookThroughCamera;
@@ -57,6 +58,7 @@ public class PhotoCapture : MonoBehaviour
                 }
 
                 cameraOn = true;
+                player.animator.SetBool("IsHolding",false);
             }
             else
             {
@@ -78,10 +80,25 @@ public class PhotoCapture : MonoBehaviour
             }
         }
 
+        int playerLayer = LayerMask.NameToLayer("PlayerBody");
+        if(cameraOn) {
+            player.playerCamera.nearClipPlane = 0.01f;
+            player.playerCamera.cullingMask &= ~(1 << playerLayer);
+        }
+        else {
+            player.playerCamera.nearClipPlane = 0.15f;
+            player.playerCamera.cullingMask |= (1 << playerLayer);
+        }
+
         cameraCooldown -= Time.deltaTime;
         cameraTimer -= Time.deltaTime;
 
         animator.SetBool("CameraOn", cameraOn);
+
+        if(player.animator.GetBool("IsHolding") == false) 
+        { 
+            photoholdFrame.SetActive(false);
+        }
     }
 
     //enum en coroutine zodat het zeker is dat alle items in beeld zijn geladen voordat de foto wordt genomen
@@ -119,6 +136,7 @@ public class PhotoCapture : MonoBehaviour
     public void HoldPhoto()
     {
         photoholdDisplayArea.sprite = photoDisplayArea.sprite;
+        player.animator.SetBool("IsHolding",true);
         photoholdFrame.SetActive(true);
         RemovePhoto();
     }
