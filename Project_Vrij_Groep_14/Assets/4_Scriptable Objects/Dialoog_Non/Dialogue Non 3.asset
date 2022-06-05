@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9fa2ef330bb9e418f24db54e3c776d, type: 3}
   m_Name: Dialogue Non 3
   m_EditorClassIdentifier: 
-  dialogue: I was so frustrated with the people in town that I turned to the devil.
-    I wanted the people to be punished for their wrongdoings, not realizing that
-    I too was in the wrong.
-  nextDialogueOption: {fileID: 0}
+  dialogue: Could you help me break the curse that is cast upon this town?
+  nextDialogueOption: {fileID: 11400000, guid: fb2f2573b1b80164bba55e594d32d112, type: 2}
   pauseBreak: 0
-  endBreak: 1
+  endBreak: 0

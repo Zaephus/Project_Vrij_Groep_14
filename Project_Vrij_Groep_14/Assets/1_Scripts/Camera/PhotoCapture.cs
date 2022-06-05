@@ -86,7 +86,7 @@ public class PhotoCapture : MonoBehaviour
             player.playerCamera.cullingMask &= ~(1 << playerLayer);
         }
         else {
-            player.playerCamera.nearClipPlane = 0.15f;
+            player.playerCamera.nearClipPlane = 0.3f;
             player.playerCamera.cullingMask |= (1 << playerLayer);
         }
 

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc9fa2ef330bb9e418f24db54e3c776d, type: 3}
-  m_Name: Dialogue Non 2
+  m_Name: Dialogue Non 4
   m_EditorClassIdentifier: 
-  dialogue: I did something terribly wrong and I cannot solve this problem on my
-    own
-  nextDialogueOption: {fileID: 11400000, guid: c151c510df0bcd44abc0a4a366ca41dd, type: 2}
+  dialogue: I'm assuming that you're looking for someone in town, but the person
+    you're looking for is most likely stuck in that camera over there.
+  nextDialogueOption: {fileID: 11400000, guid: 09cfe9a15ee340f47ba591703fa81cf3, type: 2}
   pauseBreak: 0
   endBreak: 0

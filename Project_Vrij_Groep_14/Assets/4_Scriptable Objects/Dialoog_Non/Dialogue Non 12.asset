@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc9fa2ef330bb9e418f24db54e3c776d, type: 3}
-  m_Name: Dialogue Non 2
+  m_Name: Dialogue Non 12
   m_EditorClassIdentifier: 
-  dialogue: I did something terribly wrong and I cannot solve this problem on my
-    own
-  nextDialogueOption: {fileID: 11400000, guid: c151c510df0bcd44abc0a4a366ca41dd, type: 2}
+  dialogue: Right now this town is not what it seems.
+  nextDialogueOption: {fileID: 11400000, guid: a3067324a6158e74487b300efb532960, type: 2}
   pauseBreak: 0
   endBreak: 0
