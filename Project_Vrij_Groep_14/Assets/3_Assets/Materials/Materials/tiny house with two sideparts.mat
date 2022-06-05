@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2862111858524412667
+--- !u!114 &-6663376791682269304
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: church right_lambert3_AlbedoTransparency
+  m_Name: tiny house with two sideparts
   m_Shader: {fileID: -6465566751694194690, guid: 909ce508bce880e43863cea3718677ba, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -33,7 +33,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_280cae60f2014d95a7bd11f7c41e1cdd:
-        m_Texture: {fileID: 2800000, guid: b9220a0826c684d50b5d8e17aaae81e3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3f90088736e2c4dcbbc3b1e78a0e5c6b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
