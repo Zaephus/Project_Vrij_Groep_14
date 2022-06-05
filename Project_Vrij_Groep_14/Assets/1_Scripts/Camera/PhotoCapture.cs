@@ -46,37 +46,49 @@ public class PhotoCapture : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //camera aanzetten
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (!cameraOn)
+        if(player.hasCamera && FindObjectOfType<MenuManager>().gameState == MenuManager.GameState.Play) {
+            //camera aanzetten
+            if (Input.GetMouseButtonDown(1))
             {
-                if (!firstTimeLook)                //check of het de eerste keer is dat speler door de lens kijkt
+                if (!cameraOn)
                 {
-                    OnLookThroughCamera?.Invoke(this, EventArgs.Empty);
-                    firstTimeLook = true;
+                    if (!firstTimeLook)                //check of het de eerste keer is dat speler door de lens kijkt
+                    {
+                        OnLookThroughCamera?.Invoke(this, EventArgs.Empty);
+                        firstTimeLook = true;
+                    }
+
+                    cameraOn = true;
+                    player.animator.SetBool("IsHolding",false);
                 }
-
-                cameraOn = true;
-                player.animator.SetBool("IsHolding",false);
-            }
-            else
-            {
-                cameraOn = false;
-            }
-        }
-
-        //foto nemen
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (!viewingPhoto && cameraOn)
-            {
-                if (!firstTimePicture)                //check of het de eerste keer is dat speler een foto neemt
+                else
                 {
-                    OnTakePicture?.Invoke(this, EventArgs.Empty);
-                    firstTimePicture = true;
+                    cameraOn = false;
                 }
-                StartCoroutine(CapturePhoto());
+            }
+
+            //foto nemen
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (!viewingPhoto && cameraOn)
+                {
+                    if (!firstTimePicture)                //check of het de eerste keer is dat speler een foto neemt
+                    {
+                        OnTakePicture?.Invoke(this, EventArgs.Empty);
+                        firstTimePicture = true;
+                    }
+                    StartCoroutine(CapturePhoto());
+                }
+            }
+
+            cameraCooldown -= Time.deltaTime;
+            cameraTimer -= Time.deltaTime;
+
+            animator.SetBool("CameraOn", cameraOn);
+
+            if(player.animator.GetBool("IsHolding") == false) 
+            { 
+                photoholdFrame.SetActive(false);
             }
         }
 
@@ -90,15 +102,6 @@ public class PhotoCapture : MonoBehaviour
             player.playerCamera.cullingMask |= (1 << playerLayer);
         }
 
-        cameraCooldown -= Time.deltaTime;
-        cameraTimer -= Time.deltaTime;
-
-        animator.SetBool("CameraOn", cameraOn);
-
-        if(player.animator.GetBool("IsHolding") == false) 
-        { 
-            photoholdFrame.SetActive(false);
-        }
     }
 
     //enum en coroutine zodat het zeker is dat alle items in beeld zijn geladen voordat de foto wordt genomen

@@ -56,6 +56,7 @@ public class MenuManager : MonoBehaviour
         FindObjectOfType<PlayerController>().canMove = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     void MainMenuBehaviour()

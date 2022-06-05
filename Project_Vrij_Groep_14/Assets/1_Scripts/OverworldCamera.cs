@@ -9,17 +9,26 @@ public class OverworldCamera : MonoBehaviour, IInteractable
 
     public GameObject playerCameraHandheld;
 
+    public bool canInteract = false;
+
     public void Interact(PlayerManager p)
     {
+        p.playerInteract.GrabItem();
+        p.hasCamera = true;
         playerCameraHandheld.SetActive(true);
-        OnPhotoCameraPickedUp?.Invoke(this, EventArgs.Empty);
+        OnPhotoCameraPickedUp?.Invoke(this, EventArgs.Empty);Destroy(gameObject);
 
+        StartCoroutine(DestroyItem());
+    }
+
+    public IEnumerator DestroyItem() {
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 
     public bool CanInteract() 
     {
-        return true;
+        return canInteract;
     }
 
     // Start is called before the first frame update

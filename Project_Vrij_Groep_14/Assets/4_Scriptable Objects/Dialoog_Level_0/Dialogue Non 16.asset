@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc9fa2ef330bb9e418f24db54e3c776d, type: 3}
+  m_Name: Dialogue Non 16
+  m_EditorClassIdentifier: 
+  dialogue: For each photograph you can choose to hold it in your hand or place it
+    in your book.
+  nextDialogueOption: {fileID: 11400000, guid: ccb15d0a37dfc1f46963bae95c68fdee, type: 2}
+  pauseBreak: 0
+  endBreak: 0

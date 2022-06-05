@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,8 @@ public class NPCController : MonoBehaviour,IInteractable {
 
     public DialogueOption dialogueOption;
     public bool canInteract;
+
+    public event EventHandler OnInteract;
 
     public void OnStart() {
 
@@ -88,6 +91,7 @@ public class NPCController : MonoBehaviour,IInteractable {
     }
 
     public void Interact(PlayerManager p) {
+        OnInteract?.Invoke(this,EventArgs.Empty);
         Manager.instance.StartDialogue(dialogueOption);
     }
 

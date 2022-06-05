@@ -4864,6 +4864,15 @@ PrefabInstance:
       propertyPath: interactText
       value: 
       objectReference: {fileID: 789713813}
+    - target: {fileID: 7943641880778962286, guid: cfee01199cef9564f8bac79aaf42d00b, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'B-forearm_R'\n\tTransform 'B-hand_R'\n\tTransform
+        'B-upper_arm_R'\n\tTransform 'B-forearm_R'\n\tTransform 'B-hand_R'\n\tTransform
+        'B-upper_arm_R'\n\tTransform 'B-forearm_R'\n\tTransform 'B-hand_R'\n\tTransform
+        'B-upper_arm_R'"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfee01199cef9564f8bac79aaf42d00b, type: 3}
 --- !u!1001 &6929243273991441698

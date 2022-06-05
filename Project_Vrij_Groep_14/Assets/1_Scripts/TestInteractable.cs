@@ -5,7 +5,12 @@ using UnityEngine;
 public class TestInteractable : MonoBehaviour,IInteractable {
     public void Interact(PlayerManager p) {
         p.playerInteract.GrabItem();
-        //Destroy(this.gameObject);
+        StartCoroutine(DestroyItem());
+    }
+
+    public IEnumerator DestroyItem() {
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 
     public bool CanInteract() {

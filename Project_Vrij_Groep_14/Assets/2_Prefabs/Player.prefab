@@ -2384,7 +2384,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.3
+  m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -2405,6 +2405,7 @@ MonoBehaviour:
   playerController: {fileID: 3806739786345841416}
   playerInteract: {fileID: 4606284033400867634}
   playerCamera: {fileID: 3806739787513522684}
+  hasCamera: 0
   animator: {fileID: 0}
 --- !u!114 &3806739786345841416
 MonoBehaviour:

@@ -8,6 +8,8 @@ public class PlayerManager : MonoBehaviour {
     public PlayerInteract playerInteract;
     public Camera playerCamera;
 
+    public bool hasCamera = false;
+
     [HideInInspector] public Animator animator;
 
     public void OnStart() {
