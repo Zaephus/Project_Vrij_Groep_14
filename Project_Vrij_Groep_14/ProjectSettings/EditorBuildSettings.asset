@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/0_Scenes/EmmieScene.unity
+    guid: 8bea2e40adad51244b342bf09e28dee0
   m_configObjects: {}
