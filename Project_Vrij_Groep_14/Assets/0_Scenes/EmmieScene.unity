@@ -280,10 +280,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4606284032789562186, guid: cfee01199cef9564f8bac79aaf42d00b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606284033253906353, guid: cfee01199cef9564f8bac79aaf42d00b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4606284033400867634, guid: cfee01199cef9564f8bac79aaf42d00b, type: 3}
       propertyPath: interactText
       value: 
       objectReference: {fileID: 680665257}
+    - target: {fileID: 4606284033400867637, guid: cfee01199cef9564f8bac79aaf42d00b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7943641880778962286, guid: cfee01199cef9564f8bac79aaf42d00b, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8837642947463886004, guid: cfee01199cef9564f8bac79aaf42d00b, type: 3}
+      propertyPath: sounds.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfee01199cef9564f8bac79aaf42d00b, type: 3}
 --- !u!114 &1324725749 stripped
@@ -297,6 +317,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3f66d9c974f8540bb4a7add8651f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1368778280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4606284032789562186, guid: cfee01199cef9564f8bac79aaf42d00b, type: 3}
+  m_PrefabInstance: {fileID: 1267007262}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1410889516
 GameObject:
   m_ObjectHideFlags: 0
@@ -19947,7 +19972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77dba0f9962bb3409d131a9a4b6cdf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCameraHandheld: {fileID: 0}
+  playerCameraHandheld: {fileID: 1368778280}
   canInteract: 0
 --- !u!64 &5630581202480759765
 MeshCollider:
