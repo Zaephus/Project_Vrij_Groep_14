@@ -8,6 +8,18 @@ public class HavenPuzzle : MonoBehaviour
     public PuzzleItem referenceOutcome;
 
     public List<Collider> scaleColliders = new List<Collider>();
+
+    public bool AllItemsOnScale() {
+        
+        foreach(PuzzleItem item in puzzleItems) {
+            if(item.onScale == false) {
+                return false;
+            }
+        }
+
+        return true;
+
+    }
 }
 
            
