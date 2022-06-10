@@ -5,7 +5,7 @@ public class PuzzleItem : MonoBehaviour,IInteractable,IDropable
 {
 
     private PlayerManager player;
-    [SerializeField] private BoxCollider boxCollider;
+    [SerializeField] private Collider itemCollider;
     private Rigidbody body;
 
     private bool isHeld = false;
@@ -22,12 +22,12 @@ public class PuzzleItem : MonoBehaviour,IInteractable,IDropable
         {
             transform.position = player.playerInteract.holdTransform.position;
             transform.rotation = player.playerInteract.holdTransform.rotation;
-            boxCollider.enabled = false;
+            itemCollider.enabled = false;
             body.useGravity = false;
         }
         else 
         {
-            boxCollider.enabled = true;
+            itemCollider.enabled = true;
             body.useGravity = true;
         }
     }
