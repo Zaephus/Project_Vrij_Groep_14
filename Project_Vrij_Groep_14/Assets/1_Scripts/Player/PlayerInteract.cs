@@ -8,9 +8,11 @@ public class PlayerInteract : MonoBehaviour {
     private PlayerManager player;
 
     private IInteractable interactable;
-    private Vector3 interactablePosition;
+    private IDropable dropable;
+    private Vector3 itemPosition;
 
     private bool canInteract = false;
+    private bool isHolding = false;
 
     public TMP_Text interactText;
     public Transform handIKTarget;
@@ -35,25 +37,34 @@ public class PlayerInteract : MonoBehaviour {
             interactText.enabled = false;
         }
 
+        if(isHolding && Input.GetKeyDown("h")) {
+            dropable.DropItem();
+            player.animator.SetBool("IsHolding",false);
+        }
+
     }
 
     public void GrabItem() {
-        handIKTarget.position = interactablePosition;
+        handIKTarget.position = itemPosition;
         player.animator.SetTrigger("GrabbedItem");
 
     }
 
     public void GrabAndHoldItem() {
-        handIKTarget.position = interactablePosition;
+        handIKTarget.position = itemPosition;
         player.animator.SetTrigger("GrabbedItem");
         player.animator.SetBool("IsHolding",true);
+        isHolding = true;
     }
 
     public void OnTriggerEnter(Collider other) {
         if(other.GetComponent<IInteractable>() != null) {
             canInteract = other.GetComponent<IInteractable>().CanInteract();
             interactable = other.GetComponent<IInteractable>();
-            interactablePosition = other.transform.position;
+            itemPosition = other.transform.position;
+            if(other.GetComponent<IDropable>() != null) {
+                dropable = other.GetComponent<IDropable>();
+            }
         }
     }
 

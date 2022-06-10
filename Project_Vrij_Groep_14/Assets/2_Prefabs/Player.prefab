@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &467006837209052074
 Transform:
   m_ObjectHideFlags: 0
@@ -3194,6 +3194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactText: {fileID: 0}
   handIKTarget: {fileID: 5068970426592740173}
+  holdTransform: {fileID: 467006837209052074}
 --- !u!1 &4606284033481719920
 GameObject:
   m_ObjectHideFlags: 0
