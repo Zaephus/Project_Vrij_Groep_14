@@ -10,9 +10,11 @@ public class StainedGlassPiece : MonoBehaviour,IInteractable,IDropable {
     private Collider itemCollider;
     private Rigidbody body;
 
-    private bool isHeld = false;
+    [HideInInspector] public bool isHeld = false;
 
     public void Start() {
+        player = FindObjectOfType<PlayerManager>();
+        player.playerInteract.canInteract = false;
         itemCollider = GetComponent<Collider>();
         body = GetComponent<Rigidbody>();
     }
@@ -43,5 +45,5 @@ public class StainedGlassPiece : MonoBehaviour,IInteractable,IDropable {
     public bool CanInteract() {
         return true;
     }
-    
+
 }
