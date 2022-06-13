@@ -9,6 +9,7 @@ public class DialogueSystem : MonoBehaviour {
     public GameObject dialoguePanel;
     public GameObject continueButton;
     public TMP_Text dialogueText;
+    public TMP_Text nameText;
 
     private DialogueOption currentDialogueOption;
 
@@ -18,7 +19,7 @@ public class DialogueSystem : MonoBehaviour {
 
     public bool dialogueEnded;
 
-    public void Initialize(DialogueOption d) {
+    public void Initialize(DialogueOption d,string name) {
 
         FindObjectOfType<MenuManager>().gameState = MenuManager.GameState.Pause;
 
@@ -27,6 +28,8 @@ public class DialogueSystem : MonoBehaviour {
         dialoguePanel.SetActive(true);
         dialogueText.text = "";
         Debug.Log("Initialized dialoguesystem");
+
+        nameText.text = name;
 
         currentDialogueOption = d;
         StartCoroutine(TypeWriter(currentDialogueOption.dialogue));

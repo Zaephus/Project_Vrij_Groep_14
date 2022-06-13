@@ -8,11 +8,11 @@ public class PlayerInteract : MonoBehaviour {
     private PlayerManager player;
 
     private IInteractable interactable;
-    private IDropable dropable;
+    [HideInInspector] public IDropable dropable;
     private Vector3 itemPosition;
 
     private bool canInteract = false;
-    private bool isHolding = false;
+    [HideInInspector] public bool isHolding = false;
 
     public TMP_Text interactText;
     public Transform handIKTarget;
@@ -24,11 +24,12 @@ public class PlayerInteract : MonoBehaviour {
 
     public void OnUpdate() {
 
+        player.animator.SetBool("IsHolding",isHolding);
+
         if(canInteract) {
             interactText.enabled = true;
 
             if(Input.GetButtonDown("Interact")) {
-                player.animator.SetBool("IsHolding",false);
                 interactable.Interact(player);
                 canInteract = false;
             }
@@ -39,21 +40,29 @@ public class PlayerInteract : MonoBehaviour {
 
         if(isHolding && Input.GetKeyDown("h")) {
             dropable.DropItem();
+            isHolding = false;
             player.animator.SetBool("IsHolding",false);
         }
 
     }
 
     public void GrabItem() {
+        if(isHolding) {
+            dropable?.DropItem();
+            isHolding = false;
+        }
         handIKTarget.position = itemPosition;
         player.animator.SetTrigger("GrabbedItem");
 
     }
 
-    public void GrabAndHoldItem() {
+    public void GrabAndHoldItem(IDropable d) {
+        if(isHolding) {
+            dropable?.DropItem();
+        }
+        dropable = d;
         handIKTarget.position = itemPosition;
         player.animator.SetTrigger("GrabbedItem");
-        player.animator.SetBool("IsHolding",true);
         isHolding = true;
     }
 
@@ -62,9 +71,9 @@ public class PlayerInteract : MonoBehaviour {
             canInteract = other.GetComponent<IInteractable>().CanInteract();
             interactable = other.GetComponent<IInteractable>();
             itemPosition = other.transform.position;
-            if(other.GetComponent<IDropable>() != null) {
-                dropable = other.GetComponent<IDropable>();
-            }
+            // if(other.GetComponent<IDropable>() != null) {
+            //     dropable = other.GetComponent<IDropable>();
+            // }
         }
     }
 

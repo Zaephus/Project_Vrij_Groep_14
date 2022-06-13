@@ -17,9 +17,9 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
 
-    [Range(100, 200)]
+    [Range(30, 150)]
     public float mouseSensitivityX = 100;
-    [Range(100, 200)]
+    [Range(30, 150)]
     public float mouseSensitivityY = 100;
     float xRotation = 0;
 
@@ -104,11 +104,11 @@ public class PlayerController : MonoBehaviour
     public void Look()
     {
 
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * (mouseSensitivityX/100);
+        float mouseY = Input.GetAxis("Mouse Y") * (mouseSensitivityY/100);
 
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -20, 45);
+        xRotation = Mathf.Clamp(xRotation, -45, 60);
 
         //playerCamera.localRotation = Quaternion.Euler(xRotation,0,0);
         //The head is on a different axis
@@ -122,6 +122,6 @@ public class PlayerController : MonoBehaviour
         float radius = 0.09f;
         LayerMask terrainMask = LayerMask.GetMask("Terrain");
 
-        return Physics.CheckSphere(this.transform.position, radius, terrainMask);
+        return Physics.CheckSphere(this.transform.position, radius);
     }
 }

@@ -22,8 +22,9 @@ public class PhotoCapture : MonoBehaviour
     public bool viewingPhoto;
 
     [Header ("Photo Holding")]
-    [SerializeField] Image photoholdDisplayArea;
-    [SerializeField] GameObject photoholdFrame;
+    [SerializeField] GameObject photoHoldFramePrefab;
+    //[SerializeField] Image photoholdDisplayArea;
+    //[SerializeField] GameObject photoholdFrame;
 
     [Header("Animation")]
     [SerializeField] Animator animator;
@@ -59,7 +60,10 @@ public class PhotoCapture : MonoBehaviour
                     }
 
                     cameraOn = true;
-                    player.animator.SetBool("IsHolding",false);
+                    if(player.playerInteract.isHolding) {
+                        player.playerInteract.dropable.DropItem();
+                    }
+                    player.playerInteract.isHolding = false;
                 }
                 else
                 {
@@ -85,11 +89,6 @@ public class PhotoCapture : MonoBehaviour
             cameraTimer -= Time.deltaTime;
 
             animator.SetBool("CameraOn", cameraOn);
-
-            if(player.animator.GetBool("IsHolding") == false) 
-            { 
-                photoholdFrame.SetActive(false);
-            }
         }
 
         int playerLayer = LayerMask.NameToLayer("PlayerBody");
@@ -132,15 +131,17 @@ public class PhotoCapture : MonoBehaviour
     {
         MenuManager photoAlbumUI = FindObjectOfType<MenuManager>();
         photoAlbumUI.photoDisplayArea.sprite = photoDisplayArea.sprite;
-        photoholdFrame.SetActive(false);
         RemovePhoto();
     }
 
     public void HoldPhoto()
     {
-        photoholdDisplayArea.sprite = photoDisplayArea.sprite;
+        GameObject holdPhoto = Instantiate(photoHoldFramePrefab,player.playerInteract.holdTransform.position,player.playerInteract.holdTransform.rotation);
+        player.playerInteract.dropable = holdPhoto.GetComponent<IDropable>();
+        player.playerInteract.isHolding = true;
+        HoldPhotoFrame holdPhotoFrame = holdPhoto.GetComponent<HoldPhotoFrame>();
+        holdPhotoFrame.photoHoldDisplayArea.sprite = photoDisplayArea.sprite;
         player.animator.SetBool("IsHolding",true);
-        photoholdFrame.SetActive(true);
         RemovePhoto();
     }
 

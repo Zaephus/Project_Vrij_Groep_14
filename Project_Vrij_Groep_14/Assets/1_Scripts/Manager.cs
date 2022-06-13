@@ -36,8 +36,8 @@ public class Manager : MonoBehaviour {
         
     }
 
-    public void StartDialogue(DialogueOption d) {
+    public void StartDialogue(DialogueOption d,string name) {
         Debug.Log("Started Dialogue from manager");
-        dialogueSystem.Initialize(d);
+        dialogueSystem.Initialize(d,name);
     }
 }

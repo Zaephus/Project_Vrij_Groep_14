@@ -35,7 +35,7 @@ public class PuzzleItem : MonoBehaviour,IInteractable,IDropable
     public void Interact(PlayerManager p) 
     {
         player = p;
-        player.playerInteract.GrabAndHoldItem();
+        player.playerInteract.GrabAndHoldItem(this);
         isHeld = true;
     }
 

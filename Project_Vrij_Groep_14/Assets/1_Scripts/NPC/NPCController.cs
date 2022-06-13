@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class NPCController : MonoBehaviour,IInteractable {
 
@@ -9,6 +10,8 @@ public class NPCController : MonoBehaviour,IInteractable {
 
     public float walkSpeed = 2f;
     public float rotateSpeed = 2f;
+
+    private NavMeshAgent navMeshAgent;
 
     public List<Waypoint> waypoints = new List<Waypoint>();
     private int currentWaypointIndex = -1;
@@ -19,14 +22,19 @@ public class NPCController : MonoBehaviour,IInteractable {
     public float stoppingDistance;
 
     public DialogueOption dialogueOption;
+    public string npcName;
     public bool canInteract;
 
     public event EventHandler OnInteract;
 
     public void OnStart() {
 
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.updateRotation = true;
+
         if(waypoints.Count != 0) {
             targetWaypoint = GetTargetWaypoint();
+            navMeshAgent.isStopped = false;
         }
 
         if(dialogueOption == null) {
@@ -37,22 +45,23 @@ public class NPCController : MonoBehaviour,IInteractable {
 
     public void OnUpdate() {
 
-        if(waypoints.Count !=0 && !isStopped) {
+        if(waypoints.Count !=0 && !navMeshAgent.isStopped) {
 
-            transform.position = Vector3.MoveTowards(transform.position,targetWaypoint.transform.position,walkSpeed*Time.deltaTime);
-            RotateTowardsTarget();
+            //transform.position = Vector3.MoveTowards(transform.position,targetWaypoint.transform.position,walkSpeed*Time.deltaTime);
+            navMeshAgent.SetDestination(targetWaypoint.transform.position);
+            //RotateTowardsTarget();
 
             animator.SetFloat("Forward",1);
 
             if(Vector3.Distance(transform.position,targetWaypoint.transform.position) <= stoppingDistance) {
-                isStopped = true;
+                navMeshAgent.isStopped = true;
                 if(!targetWaypoint.endPoint) {
                     if(targetWaypoint.waitTimer > 0) {
                         StartCoroutine(ContinueWalking(targetWaypoint.waitTimer));
                     }
                     else {
                         targetWaypoint = GetTargetWaypoint();
-                        isStopped = false;
+                        navMeshAgent.isStopped = false;
                     }
                 }
             }
@@ -66,7 +75,7 @@ public class NPCController : MonoBehaviour,IInteractable {
     public IEnumerator ContinueWalking(float timer) {
         yield return new WaitForSeconds(timer);
         targetWaypoint = GetTargetWaypoint();
-        isStopped = false;
+        navMeshAgent.isStopped = false;
     }
 
     public Waypoint GetTargetWaypoint() {
@@ -92,7 +101,7 @@ public class NPCController : MonoBehaviour,IInteractable {
 
     public void Interact(PlayerManager p) {
         OnInteract?.Invoke(this,EventArgs.Empty);
-        Manager.instance.StartDialogue(dialogueOption);
+        Manager.instance.StartDialogue(dialogueOption,npcName);
     }
 
     public bool CanInteract() {
