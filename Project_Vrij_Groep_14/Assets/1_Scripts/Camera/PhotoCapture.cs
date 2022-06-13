@@ -37,8 +37,6 @@ public class PhotoCapture : MonoBehaviour
     public event EventHandler OnTakePicture;
     bool firstTimePicture;
 
-    public event EventHandler OnShowPhoto;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -81,8 +79,11 @@ public class PhotoCapture : MonoBehaviour
                     {
                         OnTakePicture?.Invoke(this, EventArgs.Empty);
                         firstTimePicture = true;
+                        cameraOn = false;
                     }
-                    StartCoroutine(CapturePhoto());
+                    else {
+                        StartCoroutine(CapturePhoto());
+                    }
                 }
             }
 
@@ -114,12 +115,7 @@ public class PhotoCapture : MonoBehaviour
 
         screenCapture.ReadPixels(regionToRead, 0, 0, false);
         screenCapture.Apply();
-        if(firstTimePicture){
-            OnShowPhoto?.Invoke(this,EventArgs.Empty);
-        }
-        else {
-            ShowPhoto();
-        }
+        ShowPhoto();
         cameraOn = false;
     }
 

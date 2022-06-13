@@ -11,7 +11,7 @@ public class PlayerInteract : MonoBehaviour {
     [HideInInspector] public IDropable dropable;
     private Vector3 itemPosition;
 
-    private bool canInteract = false;
+    [HideInInspector] public bool canInteract = false;
     [HideInInspector] public bool isHolding = false;
 
     public TMP_Text interactText;

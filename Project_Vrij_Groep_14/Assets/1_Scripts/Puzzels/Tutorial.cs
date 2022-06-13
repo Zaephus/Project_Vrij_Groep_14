@@ -16,14 +16,12 @@ public class Tutorial : Puzzle
         FindObjectOfType<OverworldCamera>().OnPhotoCameraPickedUp += Tutorial_OnPhotoCameraPickedUp;
         FindObjectOfType<PhotoCapture>().OnLookThroughCamera += Tutorial_OnLookThroughCamera;
         FindObjectOfType<PhotoCapture>().OnTakePicture += Tutorial_OnTakePicture;
-        FindObjectOfType<PhotoCapture>().OnShowPhoto += Tutorial_OnShowPhoto;
         nun.OnInteract += Tutorial_OnTalkToNun;
 
     }
     private void OnDisable()
     {
         FindObjectOfType<PhotoCapture>().OnLookThroughCamera -= Tutorial_OnLookThroughCamera;
-        FindObjectOfType<PhotoCapture>().OnTakePicture -= Tutorial_OnTakePicture;
     }
 
     void Tutorial_OnTalkToNun(object sender, System.EventArgs e) 
@@ -49,18 +47,13 @@ public class Tutorial : Puzzle
 
     void Tutorial_OnTakePicture(object sender, System.EventArgs e)
     {
-        //StartCoroutine(StartPrompt(prompts[2]));
-        Debug.Log("Foto genomen");
-    }
-
-    void Tutorial_OnShowPhoto(object sender,System.EventArgs e) {
-
         PlayerManager player = FindObjectOfType<PlayerManager>();
         GameObject stainedGlassPuck = Instantiate(stainedGlassPiecePrefab,player.playerInteract.holdTransform.position,player.playerInteract.holdTransform.rotation);
+        stainedGlassPuck.GetComponent<StainedGlassPiece>().isHeld = true;
         player.playerInteract.dropable = stainedGlassPuck.GetComponent<IDropable>();
         player.playerInteract.isHolding = true;
-        FindObjectOfType<PhotoCapture>().OnShowPhoto -= Tutorial_OnShowPhoto;
-        
+        FindObjectOfType<PhotoCapture>().OnTakePicture -= Tutorial_OnTakePicture;
+        Debug.Log("Foto genomen");
     }
 
     public IEnumerator StartPrompt(DialogueOption prompt) {
