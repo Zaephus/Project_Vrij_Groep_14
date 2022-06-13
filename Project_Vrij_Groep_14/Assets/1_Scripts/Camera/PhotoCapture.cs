@@ -37,6 +37,7 @@ public class PhotoCapture : MonoBehaviour
     public event EventHandler OnTakePicture;
     bool firstTimePicture;
 
+    public event EventHandler OnShowPhoto;
 
     // Start is called before the first frame update
     void Start()
@@ -113,7 +114,12 @@ public class PhotoCapture : MonoBehaviour
 
         screenCapture.ReadPixels(regionToRead, 0, 0, false);
         screenCapture.Apply();
-        ShowPhoto();
+        if(firstTimePicture){
+            OnShowPhoto?.Invoke(this,EventArgs.Empty);
+        }
+        else {
+            ShowPhoto();
+        }
         cameraOn = false;
     }
 
@@ -141,7 +147,6 @@ public class PhotoCapture : MonoBehaviour
         player.playerInteract.isHolding = true;
         HoldPhotoFrame holdPhotoFrame = holdPhoto.GetComponent<HoldPhotoFrame>();
         holdPhotoFrame.photoHoldDisplayArea.sprite = photoDisplayArea.sprite;
-        player.animator.SetBool("IsHolding",true);
         RemovePhoto();
     }
 

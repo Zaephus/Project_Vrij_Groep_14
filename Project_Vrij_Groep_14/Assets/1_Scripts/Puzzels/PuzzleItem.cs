@@ -1,19 +1,21 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PuzzleItem : MonoBehaviour,IInteractable,IDropable
 {
 
     private PlayerManager player;
-    [SerializeField] private Collider itemCollider;
-    private Rigidbody body;
+    public List<Collider> overworldItemColliders = new List<Collider>();
+    //public List<Collider> cameraWorldItemColliders = new List<Collider>();
+    public Rigidbody body;
 
     private bool isHeld = false;
     public bool onScale = false;
 
     public void Start()
     {
-        body = GetComponent<Rigidbody>();
+        //body = GetComponent<Rigidbody>();
     }
 
     public void Update()
@@ -22,12 +24,16 @@ public class PuzzleItem : MonoBehaviour,IInteractable,IDropable
         {
             transform.position = player.playerInteract.holdTransform.position;
             transform.rotation = player.playerInteract.holdTransform.rotation;
-            itemCollider.enabled = false;
+            foreach(Collider c in overworldItemColliders) {
+                c.enabled = false;
+            }
             body.useGravity = false;
         }
         else 
         {
-            itemCollider.enabled = true;
+            foreach(Collider c in overworldItemColliders) {
+                c.enabled = true;
+            }
             body.useGravity = true;
         }
     }

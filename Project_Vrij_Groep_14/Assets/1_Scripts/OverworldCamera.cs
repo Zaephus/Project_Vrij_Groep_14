@@ -16,7 +16,8 @@ public class OverworldCamera : MonoBehaviour, IInteractable
         p.playerInteract.GrabItem();
         p.hasCamera = true;
         playerCameraHandheld.SetActive(true);
-        OnPhotoCameraPickedUp?.Invoke(this, EventArgs.Empty);Destroy(gameObject);
+        OnPhotoCameraPickedUp?.Invoke(this, EventArgs.Empty);
+        Destroy(gameObject);
 
         StartCoroutine(DestroyItem());
     }
