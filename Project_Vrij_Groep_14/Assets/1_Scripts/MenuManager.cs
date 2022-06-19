@@ -11,6 +11,9 @@ public class MenuManager : MonoBehaviour
 
     public Image photoDisplayArea;
 
+    [Header("Audio")]
+    [SerializeField] AudioManager audio;
+
     private void Start()
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
@@ -86,12 +89,14 @@ public class MenuManager : MonoBehaviour
 
     public void OnPause()
     {
+        audio.Play("Plakboek");
         pauzeCanvas.SetActive(true);
         gameState = GameState.Pause;
     }
 
     public void OnResume(GameObject canvas)
     {
+        audio.Play("Plakboek");
         canvas.SetActive(false);
         gameState = GameState.Play;
     }

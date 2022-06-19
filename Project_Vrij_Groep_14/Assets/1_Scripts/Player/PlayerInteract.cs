@@ -18,6 +18,10 @@ public class PlayerInteract : MonoBehaviour {
     public Transform handIKTarget;
     public Transform holdTransform;
 
+
+    [Header("Audio")]
+    [SerializeField] AudioManager audio;
+
     public void OnStart(PlayerManager p) {
         player = p;
     }
@@ -47,6 +51,9 @@ public class PlayerInteract : MonoBehaviour {
     }
 
     public void GrabItem() {
+
+        audio.Play("Pickup");
+
         if(isHolding) {
             dropable?.DropItem();
             isHolding = false;

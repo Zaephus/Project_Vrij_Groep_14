@@ -182,6 +182,7 @@ Transform:
   - {fileID: 1819088666454289398}
   - {fileID: 3087917756337616845}
   - {fileID: 3087917756762377559}
+  - {fileID: 8854086519096511267}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -204,9 +205,10 @@ MonoBehaviour:
   photoDisplayArea: {fileID: 3087917755701854354}
   photoFrame: {fileID: 3087917756762377563}
   viewingPhoto: 0
-  photoholdDisplayArea: {fileID: 0}
-  photoholdFrame: {fileID: 0}
+  photoHoldFramePrefab: {fileID: 0}
   animator: {fileID: 372993731}
+  player: {fileID: 0}
+  audio: {fileID: 7137594357248101188}
 --- !u!95 &372993731
 Animator:
   serializedVersion: 3
@@ -999,6 +1001,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!1 &5730271773058592406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8854086519096511267}
+  - component: {fileID: 7137594357248101188}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8854086519096511267
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5730271773058592406}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.036000013, z: 0.0539999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3087917756288309666}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7137594357248101188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5730271773058592406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb23196e6b8726949ad19098b449f472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Camera Equip
+    clip: {fileID: 8300000, guid: aa4dbff4fbaf3334e9c3001180aef88a, type: 3}
+    mix: {fileID: -8187775768978837837, guid: 8a8b7db3b2be3fd41ae5c7e038d95d28, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Camera Sound
+    clip: {fileID: 8300000, guid: 87d5b8da743195c478a5e0045aceb88d, type: 3}
+    mix: {fileID: -8187775768978837837, guid: 8a8b7db3b2be3fd41ae5c7e038d95d28, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Picture Accept
+    clip: {fileID: 8300000, guid: 7fe3b5a8413f5a042a65971f71430596, type: 3}
+    mix: {fileID: -8187775768978837837, guid: 8a8b7db3b2be3fd41ae5c7e038d95d28, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &6810748687138572876
 GameObject:
   m_ObjectHideFlags: 0

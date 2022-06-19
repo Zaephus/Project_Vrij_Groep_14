@@ -30,6 +30,9 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] PlayerManager player;
 
+    [Header("Audio")]
+    [SerializeField] AudioManager audio;
+
 
     public event EventHandler OnLookThroughCamera;
     bool firstTimeLook = false;
@@ -50,6 +53,7 @@ public class PhotoCapture : MonoBehaviour
             //camera aanzetten
             if (Input.GetMouseButtonDown(1))
             {
+                audio.Play("Camera Equip");
                 if (!cameraOn)
                 {
                     if (!firstTimeLook)                //check of het de eerste keer is dat speler door de lens kijkt
@@ -108,6 +112,7 @@ public class PhotoCapture : MonoBehaviour
     //enum en coroutine zodat het zeker is dat alle items in beeld zijn geladen voordat de foto wordt genomen
     IEnumerator CapturePhoto()
     {
+        audio.Play("Camera Sound");
         viewingPhoto = true;
         yield return new WaitForEndOfFrame();
 
@@ -131,6 +136,7 @@ public class PhotoCapture : MonoBehaviour
 
     public void SavePhoto()
     {
+        audio.Play("Picture Accept");
         MenuManager photoAlbumUI = FindObjectOfType<MenuManager>();
         photoAlbumUI.photoDisplayArea.sprite = photoDisplayArea.sprite;
         RemovePhoto();

@@ -270,6 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetLocation: {fileID: 7101984066978384463}
+  audio: {fileID: 0}
 --- !u!1001 &2077922601960503950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -407,6 +408,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 74b7b17fd733fac49b106db7606ab2c4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74b7b17fd733fac49b106db7606ab2c4, type: 3}
 --- !u!1 &2415564400289459524 stripped
@@ -445,6 +450,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetLocation: {fileID: 7101984066978384463}
+  audio: {fileID: 3666125904839441601}
+--- !u!114 &3666125904839441601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2415564400289459524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb23196e6b8726949ad19098b449f472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Deur
+    clip: {fileID: 8300000, guid: a5f891c2825aa3a49b3db9107c93f090, type: 3}
+    mix: {fileID: -8187775768978837837, guid: 8a8b7db3b2be3fd41ae5c7e038d95d28, type: 2}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!1001 &4622731236830498125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -504,6 +530,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 74b7b17fd733fac49b106db7606ab2c4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74b7b17fd733fac49b106db7606ab2c4, type: 3}
 --- !u!1 &5541209028256821276 stripped
@@ -542,3 +572,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetLocation: {fileID: 7101984066978384463}
+  audio: {fileID: 5942956774000595551}
+--- !u!114 &5942956774000595551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5541209028256821276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb23196e6b8726949ad19098b449f472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Deur
+    clip: {fileID: 8300000, guid: a5f891c2825aa3a49b3db9107c93f090, type: 3}
+    mix: {fileID: -8187775768978837837, guid: 8a8b7db3b2be3fd41ae5c7e038d95d28, type: 2}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}

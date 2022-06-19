@@ -1848,6 +1848,7 @@ GameObject:
   - component: {fileID: 3120405287720136970}
   - component: {fileID: 3806739786345841416}
   - component: {fileID: 6923828906598409871}
+  - component: {fileID: 671493526532254508}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1947,6 +1948,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &671493526532254508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3806739786345841422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb23196e6b8726949ad19098b449f472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Pickup
+    clip: {fileID: 8300000, guid: 413189bc5e0428740ace4b7da09cc0c4, type: 3}
+    mix: {fileID: -8187775768978837837, guid: 8a8b7db3b2be3fd41ae5c7e038d95d28, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &3806739787513522627
 GameObject:
   m_ObjectHideFlags: 0
@@ -2197,6 +2218,7 @@ MonoBehaviour:
   photoHoldFramePrefab: {fileID: 5866846454491662150, guid: 0020eaad7f3c4d14aa8c3b0fc3862a68, type: 3}
   animator: {fileID: 1528605088366277673}
   player: {fileID: 3120405287720136970}
+  audio: {fileID: 0}
 --- !u!95 &1528605088366277673
 Animator:
   serializedVersion: 3
@@ -2660,10 +2682,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce7f1e67d8267d4da6433f5589b7d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canInteract: 0
   isHolding: 0
   interactText: {fileID: 0}
   handIKTarget: {fileID: 5068970426592740173}
   holdTransform: {fileID: 467006837209052074}
+  audio: {fileID: 671493526532254508}
 --- !u!1 &4606284033481719920
 GameObject:
   m_ObjectHideFlags: 0

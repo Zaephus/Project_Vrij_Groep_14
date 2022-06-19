@@ -13132,6 +13132,7 @@ GameObject:
   - component: {fileID: 6699598507669847140}
   - component: {fileID: 5614113730262980867}
   - component: {fileID: 8071278835625332484}
+  - component: {fileID: 2191891875852808391}
   m_Layer: 0
   m_Name: Gate_Prefab
   m_TagString: Untagged
@@ -13168,6 +13169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8071278835625332484}
+  audio: {fileID: 0}
 --- !u!95 &8071278835625332484
 Animator:
   serializedVersion: 3
@@ -13187,6 +13189,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2191891875852808391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6699598507669847141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb23196e6b8726949ad19098b449f472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Open
+    clip: {fileID: 8300000, guid: 03a7b3c7d156cb24485debe3df1a77b4, type: 3}
+    mix: {fileID: -8187775768978837837, guid: 8a8b7db3b2be3fd41ae5c7e038d95d28, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &6768853013400863773
 GameObject:
   m_ObjectHideFlags: 0
