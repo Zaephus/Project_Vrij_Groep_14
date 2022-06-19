@@ -1081,6 +1081,13 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Ambience 1
+    clip: {fileID: 8300000, guid: 6c970606d47051c4f93c6c3510702bf1, type: 3}
+    mix: {fileID: -930366256247267402, guid: 8a8b7db3b2be3fd41ae5c7e038d95d28, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &6741362314101360191
 GameObject:
   m_ObjectHideFlags: 0

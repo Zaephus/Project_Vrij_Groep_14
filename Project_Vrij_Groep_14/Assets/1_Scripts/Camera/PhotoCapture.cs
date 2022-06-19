@@ -54,6 +54,7 @@ public class PhotoCapture : MonoBehaviour
             if (Input.GetMouseButtonDown(1))
             {
                 audio.Play("Camera Equip");
+                audio.Play("Ambience 2");
                 if (!cameraOn)
                 {
                     if (!firstTimeLook)                //check of het de eerste keer is dat speler door de lens kijkt
@@ -71,6 +72,7 @@ public class PhotoCapture : MonoBehaviour
                 else
                 {
                     cameraOn = false;
+                    audio.Stop("Ambience 2");
                 }
             }
 

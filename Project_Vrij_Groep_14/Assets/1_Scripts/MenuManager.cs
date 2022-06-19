@@ -21,6 +21,7 @@ public class MenuManager : MonoBehaviour
             gameState = GameState.MainMenu;
         }
         gameState = GameState.Play;
+        audio.Play("Ambience 1");
     }
 
     private void Update()
