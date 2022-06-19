@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a25e50f1c5edcd409baaa0c67e2b5f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaitTimer: 0
-  EndPoint: 0
+  waitTimer: 0
+  endPoint: 0
 --- !u!1 &6392297012572844129
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +93,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6392297012572844129}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

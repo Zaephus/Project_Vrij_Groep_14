@@ -5,16 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/0_Scenes/EmmieScene.unity
-    guid: 8bea2e40adad51244b342bf09e28dee0
-  - enabled: 0
-    path: Assets/0_Scenes/MarcScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/0_Scenes/MainScene.unity
-    guid: 6268cb46f24a1db428f315373434ef9a
   - enabled: 1
     path: Assets/0_Scenes/Main Menu.unity
     guid: ae39ac1823e0a1248b5bdfbbfaf075e3
+  - enabled: 1
+    path: Assets/0_Scenes/MainScene.unity
+    guid: 6268cb46f24a1db428f315373434ef9a
   m_configObjects: {}
