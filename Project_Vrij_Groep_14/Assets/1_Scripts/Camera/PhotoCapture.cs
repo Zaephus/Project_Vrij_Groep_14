@@ -124,6 +124,7 @@ public class PhotoCapture : MonoBehaviour
         screenCapture.Apply();
         ShowPhoto();
         cameraOn = false;
+        audioManager.Stop("Ambience 2");
     }
 
     void ShowPhoto()
