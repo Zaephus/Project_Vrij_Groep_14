@@ -7,10 +7,10 @@ public class Gate : MonoBehaviour
     public Animator animator;
 
     [Header("Audio")]
-    [SerializeField] AudioManager audio;
+    [SerializeField] AudioManager audioManager;
     public void Open()
     {
-        audio.Play("Open");
+        audioManager.Play("Open");
         animator.SetBool("Open", true);
     }
 

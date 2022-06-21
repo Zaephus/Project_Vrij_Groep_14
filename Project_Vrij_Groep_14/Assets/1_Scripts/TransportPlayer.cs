@@ -7,7 +7,7 @@ public class TransportPlayer : MonoBehaviour, IInteractable
     public Transform targetLocation;
 
     [Header("Audio")]
-    [SerializeField] AudioManager audio;
+    [SerializeField] AudioManager audioManager;
 
     public bool CanInteract()
     {
@@ -21,7 +21,7 @@ public class TransportPlayer : MonoBehaviour, IInteractable
 
     void MovePlayer(Transform playerPosition)
     {
-        audio.Play("Deur");
+        audioManager.Play("Deur");
         playerPosition.position = targetLocation.position;
     }
 }

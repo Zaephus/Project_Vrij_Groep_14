@@ -20,7 +20,7 @@ public class PlayerInteract : MonoBehaviour {
 
 
     [Header("Audio")]
-    [SerializeField] AudioManager audio;
+    [SerializeField] AudioManager audioManager;
 
     public void OnStart(PlayerManager p) {
         player = p;
@@ -52,7 +52,7 @@ public class PlayerInteract : MonoBehaviour {
 
     public void GrabItem() {
 
-        audio.Play("Pickup");
+        audioManager.Play("Pickup");
 
         if(isHolding) {
             dropable?.DropItem();

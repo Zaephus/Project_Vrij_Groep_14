@@ -31,7 +31,7 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] PlayerManager player;
 
     [Header("Audio")]
-    [SerializeField] AudioManager audio;
+    [SerializeField] AudioManager audioManager;
 
 
     public event EventHandler OnLookThroughCamera;
@@ -53,8 +53,8 @@ public class PhotoCapture : MonoBehaviour
             //camera aanzetten
             if (Input.GetMouseButtonDown(1))
             {
-                audio.Play("Camera Equip");
-                audio.Play("Ambience 2");
+                audioManager.Play("Camera Equip");
+                audioManager.Play("Ambience 2");
                 if (!cameraOn)
                 {
                     if (!firstTimeLook)                //check of het de eerste keer is dat speler door de lens kijkt
@@ -72,7 +72,7 @@ public class PhotoCapture : MonoBehaviour
                 else
                 {
                     cameraOn = false;
-                    audio.Stop("Ambience 2");
+                    audioManager.Stop("Ambience 2");
                 }
             }
 
@@ -114,7 +114,7 @@ public class PhotoCapture : MonoBehaviour
     //enum en coroutine zodat het zeker is dat alle items in beeld zijn geladen voordat de foto wordt genomen
     IEnumerator CapturePhoto()
     {
-        audio.Play("Camera Sound");
+        audioManager.Play("Camera Sound");
         viewingPhoto = true;
         yield return new WaitForEndOfFrame();
 
@@ -138,7 +138,7 @@ public class PhotoCapture : MonoBehaviour
 
     public void SavePhoto()
     {
-        audio.Play("Picture Accept");
+        audioManager.Play("Picture Accept");
         MenuManager photoAlbumUI = FindObjectOfType<MenuManager>();
         photoAlbumUI.photoDisplayArea.sprite = photoDisplayArea.sprite;
         RemovePhoto();
