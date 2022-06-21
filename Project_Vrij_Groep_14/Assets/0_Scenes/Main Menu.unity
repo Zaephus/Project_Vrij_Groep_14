@@ -919,7 +919,7 @@ MonoBehaviour:
   gameState: 2
   pauzeCanvas: {fileID: 0}
   photoDisplayArea: {fileID: 0}
-  audioManager: {fileID: 0}
+  audioManager: {fileID: 1356177665}
 --- !u!1 &497819726
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,8 +20,11 @@ public class MenuManager : MonoBehaviour
         {
             gameState = GameState.MainMenu;
         }
-        gameState = GameState.Play;
-        audioManager.Play("Ambience 1");
+        else
+        {
+            gameState = GameState.Play;
+            audioManager.Play("Ambience 1");
+        }
     }
 
     private void Update()
@@ -60,7 +63,7 @@ public class MenuManager : MonoBehaviour
         FindObjectOfType<PlayerController>().canMove = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.lockState = CursorLockMode.Confined;
     }
 
     void MainMenuBehaviour()

@@ -9,6 +9,9 @@ public class DistrictManager : MonoBehaviour
 
     public District currentDistrict;
 
+    [Header("Audio")]
+    [SerializeField] AudioManager audioManager;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
@@ -39,6 +42,6 @@ public class DistrictManager : MonoBehaviour
 
     void PlayCutscene(District target)
     {
-
+        audioManager.Play("Level Complete");
     }
 }
