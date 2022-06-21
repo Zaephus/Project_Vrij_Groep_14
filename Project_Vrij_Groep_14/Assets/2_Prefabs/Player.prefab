@@ -1999,6 +1999,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4606284032789562184}
+  - {fileID: 8748652578607574482}
   m_Father: {fileID: 3806739786345841417}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2218,7 +2219,7 @@ MonoBehaviour:
   photoHoldFramePrefab: {fileID: 5866846454491662150, guid: 0020eaad7f3c4d14aa8c3b0fc3862a68, type: 3}
   animator: {fileID: 1528605088366277673}
   player: {fileID: 3120405287720136970}
-  audio: {fileID: 0}
+  audioManager: {fileID: 7326439907004749187}
 --- !u!95 &1528605088366277673
 Animator:
   serializedVersion: 3
@@ -2687,7 +2688,7 @@ MonoBehaviour:
   interactText: {fileID: 0}
   handIKTarget: {fileID: 5068970426592740173}
   holdTransform: {fileID: 467006837209052074}
-  audio: {fileID: 671493526532254508}
+  audioManager: {fileID: 0}
 --- !u!1 &4606284033481719920
 GameObject:
   m_ObjectHideFlags: 0
@@ -4431,3 +4432,75 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &8997149136435578993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8748652578607574482}
+  - component: {fileID: 7326439907004749187}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8748652578607574482
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8997149136435578993}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -39.85, y: -0.844, z: 20.734}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3806739787513522626}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7326439907004749187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8997149136435578993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb23196e6b8726949ad19098b449f472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Camera Equip
+    clip: {fileID: 8300000, guid: aa4dbff4fbaf3334e9c3001180aef88a, type: 3}
+    mix: {fileID: -8187775768978837837, guid: 8a8b7db3b2be3fd41ae5c7e038d95d28, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Camera Sound
+    clip: {fileID: 8300000, guid: 87d5b8da743195c478a5e0045aceb88d, type: 3}
+    mix: {fileID: -8187775768978837837, guid: 8a8b7db3b2be3fd41ae5c7e038d95d28, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Picture Accept
+    clip: {fileID: 8300000, guid: 7fe3b5a8413f5a042a65971f71430596, type: 3}
+    mix: {fileID: -8187775768978837837, guid: 8a8b7db3b2be3fd41ae5c7e038d95d28, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ambience 2
+    clip: {fileID: 8300000, guid: 170050c64fbb07e44b1ae78e554cc13e, type: 3}
+    mix: {fileID: -930366256247267402, guid: 8a8b7db3b2be3fd41ae5c7e038d95d28, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}

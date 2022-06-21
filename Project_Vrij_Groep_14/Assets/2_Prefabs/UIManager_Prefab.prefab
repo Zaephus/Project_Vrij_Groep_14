@@ -50,7 +50,7 @@ MonoBehaviour:
   gameState: 0
   pauzeCanvas: {fileID: 6778469620511937785}
   photoDisplayArea: {fileID: 0}
-  audio: {fileID: 6441624972507744640}
+  audioManager: {fileID: 6441624972507744640}
 --- !u!114 &9102350267730401400
 MonoBehaviour:
   m_ObjectHideFlags: 0

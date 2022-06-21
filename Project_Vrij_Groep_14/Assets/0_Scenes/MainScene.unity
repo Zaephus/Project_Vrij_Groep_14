@@ -2436,7 +2436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCameraHandheld: {fileID: 62304720}
-  canInteract: 1
+  canInteract: 0
 --- !u!64 &266159681
 MeshCollider:
   m_ObjectHideFlags: 0
