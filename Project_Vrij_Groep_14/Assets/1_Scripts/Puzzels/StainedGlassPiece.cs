@@ -44,11 +44,13 @@ public class StainedGlassPiece : MonoBehaviour,IInteractable,IDropable {
     public void Interact(PlayerManager p) {
         player = p;
         player.playerInteract.GrabAndHoldItem(this);
+        player.playerInteract.holdItem = this.gameObject;
         isHeld = true;
     }
 
     public void DropItem() {
         isHeld = false;
+        //isInWall = false;
     }
 
     public bool CanInteract() {

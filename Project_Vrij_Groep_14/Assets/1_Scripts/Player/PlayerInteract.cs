@@ -7,6 +7,7 @@ public class PlayerInteract : MonoBehaviour {
 
     private PlayerManager player;
 
+    [HideInInspector] public GameObject holdItem;
     private IInteractable interactable;
     [HideInInspector] public IDropable dropable;
     private Vector3 itemPosition;

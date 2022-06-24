@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,19 +10,20 @@ public class Tutorial : Puzzle
 
     public NPCController nun;
 
-    public DialogueOption prompt;
+    public DialogueOption cameraPrompt;
+    public DialogueOption stainedGlassPrompt;
+    public DialogueOption placedTokenPrompt;
+
+    public event EventHandler IsSolved;
 
     private void OnEnable()
     {
         FindObjectOfType<OverworldCamera>().OnPhotoCameraPickedUp += Tutorial_OnPhotoCameraPickedUp;
-        FindObjectOfType<PhotoCapture>().OnLookThroughCamera += Tutorial_OnLookThroughCamera;
         FindObjectOfType<PhotoCapture>().OnTakePicture += Tutorial_OnTakePicture;
         nun.OnInteract += Tutorial_OnTalkToNun;
 
-    }
-    private void OnDisable()
-    {
-        FindObjectOfType<PhotoCapture>().OnLookThroughCamera -= Tutorial_OnLookThroughCamera;
+        FindObjectOfType<StainedGlassHub>().OnFirstToken += Tutorial_OnPlaceToken;
+
     }
 
     void Tutorial_OnTalkToNun(object sender, System.EventArgs e) 
@@ -33,31 +35,33 @@ public class Tutorial : Puzzle
     void Tutorial_OnPhotoCameraPickedUp(object sender, System.EventArgs e)
     {
         FindObjectOfType<MenuManager>().gameState = MenuManager.GameState.Pause;
-        FindObjectOfType<DialogueSystem>().Initialize(prompt,"");
-        //StartCoroutine(StartPrompt(prompts[0]));
-        Debug.Log("je hebt me opgepakt");
-        //dingen die moeten gebeuren nadat je de camera op hebt gepakt
-    }
-
-    void Tutorial_OnLookThroughCamera(object sender, System.EventArgs e)
-    {
-        //StartCoroutine(StartPrompt(prompts[1]));
-        Debug.Log("Door camera gekeken joepie");
+        StartCoroutine(StartPrompt(cameraPrompt));
     }
 
     void Tutorial_OnTakePicture(object sender, System.EventArgs e)
     {
         PlayerManager player = FindObjectOfType<PlayerManager>();
-        GameObject stainedGlassPuck = Instantiate(stainedGlassPiecePrefab,player.playerInteract.holdTransform.position,player.playerInteract.holdTransform.rotation,player.playerInteract.holdTransform);
+        GameObject stainedGlassPuck = Instantiate(stainedGlassPiecePrefab,player.playerInteract.holdTransform.position,player.playerInteract.holdTransform.rotation);
         stainedGlassPuck.GetComponent<StainedGlassPiece>().isHeld = true;
+        player.playerInteract.holdItem = stainedGlassPuck;
         player.playerInteract.dropable = stainedGlassPuck.GetComponent<IDropable>();
         player.playerInteract.isHolding = true;
+        player.playerInteract.canInteract = false;
         FindObjectOfType<PhotoCapture>().OnTakePicture -= Tutorial_OnTakePicture;
-        Debug.Log("Foto genomen");
+
+        StartCoroutine(StartPrompt(stainedGlassPrompt));
+    }
+
+    void Tutorial_OnPlaceToken(object sender,System.EventArgs e) {
+
+        StartCoroutine(StartPrompt(placedTokenPrompt));
+        IsSolved?.Invoke(this,EventArgs.Empty);
+
+        FindObjectOfType<StainedGlassHub>().OnFirstToken -= Tutorial_OnPlaceToken;
     }
 
     public IEnumerator StartPrompt(DialogueOption prompt) {
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.5f);
         FindObjectOfType<DialogueSystem>().Initialize(prompt,"");
     }
 

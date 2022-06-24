@@ -10,13 +10,12 @@ public class PuzzleItem : MonoBehaviour,IInteractable,IDropable
     //public List<Collider> cameraWorldItemColliders = new List<Collider>();
     public Rigidbody body;
 
-    private bool isHeld = false;
+    public float mass = 1;
+
+    [HideInInspector] public bool isHeld = false;
     public bool onScale = false;
 
-    public void Start()
-    {
-        //body = GetComponent<Rigidbody>();
-    }
+    public void Start() {}
 
     public void Update()
     {
@@ -28,6 +27,14 @@ public class PuzzleItem : MonoBehaviour,IInteractable,IDropable
                 c.enabled = false;
             }
             body.useGravity = false;
+        }
+        else if(onScale)
+        {
+            foreach(Collider c in overworldItemColliders) {
+                c.enabled = false;
+            }
+            body.useGravity = false;
+            body.velocity = Vector3.zero;
         }
         else 
         {
@@ -42,33 +49,13 @@ public class PuzzleItem : MonoBehaviour,IInteractable,IDropable
     {
         player = p;
         player.playerInteract.GrabAndHoldItem(this);
+        player.playerInteract.holdItem = this.gameObject;
         isHeld = true;
     }
 
     public void DropItem() 
     {
         isHeld = false;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        for (int i = 0; i < FindObjectOfType<HavenPuzzle>().scaleColliders.Count; i++)
-        {
-            if (other == FindObjectOfType<HavenPuzzle>().scaleColliders[i])
-            {
-                onScale = true;
-            }
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        for (int i = 0; i < FindObjectOfType<HavenPuzzle>().scaleColliders.Count; i++)
-        {
-            if (other == FindObjectOfType<HavenPuzzle>().scaleColliders[i])
-            {
-                onScale = false; ;
-            }
-        }
     }
 
     public bool CanInteract() 

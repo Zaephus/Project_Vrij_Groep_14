@@ -81,9 +81,10 @@ public class PhotoCapture : MonoBehaviour
             {
                 if (!viewingPhoto && cameraOn)
                 {
+                    OnTakePicture?.Invoke(this, EventArgs.Empty);
+                    
                     if (!firstTimePicture)                //check of het de eerste keer is dat speler een foto neemt
                     {
-                        OnTakePicture?.Invoke(this, EventArgs.Empty);
                         firstTimePicture = true;
                         cameraOn = false;
                     }
