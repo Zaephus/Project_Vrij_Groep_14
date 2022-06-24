@@ -23,6 +23,7 @@ public class PuzzleItem : MonoBehaviour,IInteractable,IDropable
         {
             transform.position = player.playerInteract.holdTransform.position;
             transform.rotation = player.playerInteract.holdTransform.rotation;
+            transform.localScale = new Vector3(0.3f,0.3f,0.3f);
             foreach(Collider c in overworldItemColliders) {
                 c.enabled = false;
             }
@@ -35,6 +36,7 @@ public class PuzzleItem : MonoBehaviour,IInteractable,IDropable
             }
             body.useGravity = false;
             body.velocity = Vector3.zero;
+            transform.localScale = new Vector3(1,1,1);
         }
         else 
         {
@@ -42,6 +44,7 @@ public class PuzzleItem : MonoBehaviour,IInteractable,IDropable
                 c.enabled = true;
             }
             body.useGravity = true;
+            transform.localScale = new Vector3(1,1,1);
         }
     }
 

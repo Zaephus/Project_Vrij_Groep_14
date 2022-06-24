@@ -87,6 +87,7 @@ public class PhotoCapture : MonoBehaviour
                     {
                         firstTimePicture = true;
                         cameraOn = false;
+                        audioManager.Stop("Ambience 2");
                     }
                     else {
                         StartCoroutine(CapturePhoto());

@@ -42,6 +42,7 @@ public class Tutorial : Puzzle
     {
         PlayerManager player = FindObjectOfType<PlayerManager>();
         GameObject stainedGlassPuck = Instantiate(stainedGlassPiecePrefab,player.playerInteract.holdTransform.position,player.playerInteract.holdTransform.rotation);
+        player.playerInteract.canInteract = false;
         stainedGlassPuck.GetComponent<StainedGlassPiece>().isHeld = true;
         player.playerInteract.holdItem = stainedGlassPuck;
         player.playerInteract.dropable = stainedGlassPuck.GetComponent<IDropable>();

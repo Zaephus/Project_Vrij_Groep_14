@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9fa2ef330bb9e418f24db54e3c776d, type: 3}
   m_Name: Prompt 2
   m_EditorClassIdentifier: 
-  dialogue: Place this token in the stained glass window behind the altar
+  dialogue: Place this token in the stained glass window behind the altar.
   nextDialogueOption: {fileID: 0}
   pauseBreak: 0
   endBreak: 1

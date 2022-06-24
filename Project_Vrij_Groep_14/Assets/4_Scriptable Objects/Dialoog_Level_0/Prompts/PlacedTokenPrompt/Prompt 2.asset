@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9fa2ef330bb9e418f24db54e3c776d, type: 3}
   m_Name: Prompt 2
   m_EditorClassIdentifier: 
-  dialogue: Help the seven districts to collect them all
+  dialogue: Help the seven districts to collect them all.
   nextDialogueOption: {fileID: 11400000, guid: 8a04fb4bf70c2b1469a2456ec4a0a9ce, type: 2}
   pauseBreak: 0
   endBreak: 0

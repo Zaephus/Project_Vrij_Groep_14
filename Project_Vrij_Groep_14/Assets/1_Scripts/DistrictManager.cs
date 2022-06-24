@@ -5,47 +5,19 @@ using UnityEngine;
 
 public class DistrictManager : MonoBehaviour
 {
-    //public List<District> districts;
     public District harbor;
-
-    public District currentDistrict;
+    public District endDistrict;
 
     public Tutorial tutorialPuzzle;
+    public HavenPuzzle havenPuzzle;
 
     [Header("Audio")]
     [SerializeField] AudioManager audioManager;
 
     public void Start() {
         tutorialPuzzle.IsSolved += OnTutorialSolved;
+        havenPuzzle.IsSolved += OnHavenSolved;
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            LiftCurse(currentDistrict);
-        }
-    }
-
-    //functie om uit te roepen wanneer glas in lood gefixt
-    void LiftCurse(District district)
-    {
-            district.curseStatus = District.Curse.Lifted;
-            PlayCutscene(district);
-
-            foreach(District next in district.nextDistrict)
-            {
-                next.OpenGate();
-                currentDistrict = next;
-            }
-        //if (district.districtPuzzle.puzzleStatus == Puzzle.Status.Solved)
-        //{
-        //}
-
-        return;
-    }
-
-
 
     void PlayCutscene(District target)
     {
@@ -57,4 +29,15 @@ public class DistrictManager : MonoBehaviour
         harbor.OpenGate();
         tutorialPuzzle.IsSolved -= OnTutorialSolved;
     }
+
+    void OnHavenSolved(object sender,System.EventArgs e) {
+        Debug.Log("Haven is solved");
+        endDistrict.OpenGate();
+        havenPuzzle.IsSolved -= OnHavenSolved;
+    }
+
+    void OnTriggerEnter(Collider other) {
+        //Go to End Screen;
+    }
+
 }

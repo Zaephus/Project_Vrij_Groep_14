@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3777091517974780636, guid: ab91f715087b2ff4db505c7b9d69d393, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 73.43
+      value: 76.83
       objectReference: {fileID: 0}
     - target: {fileID: 3777091517974780636, guid: ab91f715087b2ff4db505c7b9d69d393, type: 3}
       propertyPath: m_LocalPosition.y
@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3777091517974780636, guid: ab91f715087b2ff4db505c7b9d69d393, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.79
+      value: -11.28
       objectReference: {fileID: 0}
     - target: {fileID: 3777091517974780636, guid: ab91f715087b2ff4db505c7b9d69d393, type: 3}
       propertyPath: m_LocalRotation.w
@@ -366,15 +366,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3806739786345841417, guid: cfee01199cef9564f8bac79aaf42d00b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.4
+      value: 23.9
       objectReference: {fileID: 0}
     - target: {fileID: 3806739786345841417, guid: cfee01199cef9564f8bac79aaf42d00b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.877
       objectReference: {fileID: 0}
     - target: {fileID: 3806739786345841417, guid: cfee01199cef9564f8bac79aaf42d00b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -57.3
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 3806739786345841417, guid: cfee01199cef9564f8bac79aaf42d00b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -976,6 +976,8 @@ MonoBehaviour:
   puzzleStatus: 1
   stainedGlassPiecePrefab: {fileID: 2780856909768137347, guid: f9f2056153beeaf4db43dd048b28183d, type: 3}
   solvedTargetTransform: {fileID: 391183511}
+  balancedPrompt: {fileID: 11400000, guid: 4a6d94984dc1cfd4692e2fabbe133498, type: 2}
+  placedTokenPrompt: {fileID: 11400000, guid: d2ff75deca13b794e84d63ee25291d4d, type: 2}
   scale: {fileID: 1822045598}
 --- !u!1 &229437810
 GameObject:
@@ -4401,6 +4403,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 445081608}
     - target: {fileID: 745360696650753998, guid: bd19ef2b7c34dfb4c8f88342bc28b3fe, type: 3}
+      propertyPath: endDistrict
+      value: 
+      objectReference: {fileID: 284859713}
+    - target: {fileID: 745360696650753998, guid: bd19ef2b7c34dfb4c8f88342bc28b3fe, type: 3}
+      propertyPath: havenPuzzle
+      value: 
+      objectReference: {fileID: 224288485}
+    - target: {fileID: 745360696650753998, guid: bd19ef2b7c34dfb4c8f88342bc28b3fe, type: 3}
       propertyPath: tutorialPuzzle
       value: 
       objectReference: {fileID: 1023240845}
@@ -6754,7 +6764,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496985349}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.000000029802319, z: 0.13097902, w: 0.99138516}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6762,7 +6772,7 @@ Transform:
   - {fileID: 1418993737}
   m_Father: {fileID: 1822045597}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15.052}
 --- !u!54 &496985352
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7373,6 +7383,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a25e50f1c5edcd409baaa0c67e2b5f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &747314032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3339600315252498066, guid: bd19ef2b7c34dfb4c8f88342bc28b3fe, type: 3}
+  m_PrefabInstance: {fileID: 284859710}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &747314038
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747314032}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 6
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 53.2, y: 0, z: -32.8}
 --- !u!4 &791081813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3777091517974780636, guid: ab91f715087b2ff4db505c7b9d69d393, type: 3}
@@ -13235,7 +13264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3777091517974780636, guid: ab91f715087b2ff4db505c7b9d69d393, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 71.64
+      value: 73.81
       objectReference: {fileID: 0}
     - target: {fileID: 3777091517974780636, guid: ab91f715087b2ff4db505c7b9d69d393, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13243,7 +13272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3777091517974780636, guid: ab91f715087b2ff4db505c7b9d69d393, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.33
+      value: -15.32
       objectReference: {fileID: 0}
     - target: {fileID: 3777091517974780636, guid: ab91f715087b2ff4db505c7b9d69d393, type: 3}
       propertyPath: m_LocalRotation.w
