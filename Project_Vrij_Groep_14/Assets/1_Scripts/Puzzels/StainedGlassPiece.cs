@@ -8,15 +8,18 @@ public class StainedGlassPiece : MonoBehaviour,IInteractable,IDropable {
     private PlayerManager player;
 
     private Collider itemCollider;
-    private Rigidbody body;
+    [HideInInspector] public Rigidbody body;
 
     [HideInInspector] public bool isHeld = false;
+    [HideInInspector] public bool isInWall = false;
 
     public void Start() {
         player = FindObjectOfType<PlayerManager>();
         player.playerInteract.canInteract = false;
+        player.playerInteract.isHolding = true;
         itemCollider = GetComponent<Collider>();
         body = GetComponent<Rigidbody>();
+        isHeld = true;
     }
 
     public void Update() {
@@ -26,10 +29,16 @@ public class StainedGlassPiece : MonoBehaviour,IInteractable,IDropable {
             itemCollider.enabled = false;
             body.useGravity = false;
         }
+        else if(isInWall) {
+            itemCollider.enabled = false;
+            body.useGravity = false;
+            body.velocity = Vector3.zero;
+        }
         else {
             itemCollider.enabled = true;
             body.useGravity = true;
         }
+        
     }
 
     public void Interact(PlayerManager p) {
