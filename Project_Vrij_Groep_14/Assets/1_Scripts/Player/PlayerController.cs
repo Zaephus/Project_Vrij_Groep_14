@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private float playerSpeed;
     public float walkSpeed = 3;
     public float runSpeed = 6;
-    public float jumpHeight = 3;
+    public float jumpHeight = 1;
 
     public bool canMove = true;
 
@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     public Transform playerHead;
     public Transform playerBody;
 
+    public bool onGround;
+
     public void OnStart()
     {
         controller = GetComponent<CharacterController>();
@@ -44,7 +46,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Forward", verticalInput);
         animator.SetFloat("Right", horizontalInput);
 
-        if (IsOnGround() && velocity.y < 0)
+        if (onGround && velocity.y < 0)
         {
             velocity.y = -1f;
         }
@@ -67,18 +69,10 @@ public class PlayerController : MonoBehaviour
             playerSpeed = walkSpeed;
         }
 
-        if (Input.GetButtonDown("Jump") && IsOnGround() && canMove)
+        if (Input.GetButtonDown("Jump") && onGround && canMove)
         {
-            velocity.y += Mathf.Sqrt(jumpHeight * -3 * gravity);
+            velocity.y = Mathf.Sqrt(jumpHeight);
             animator.SetTrigger("IsJumping");
-        }
-
-        // if() {
-        //     animator.SetBool("IsJumping",false);
-        // }
-
-        if(Input.GetKeyDown("x")) {
-            animator.SetBool("IsHolding",false);
         }
 
         if (canMove)
@@ -117,11 +111,16 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public bool IsOnGround()
-    {
-        float radius = 0.09f;
-        LayerMask terrainMask = LayerMask.GetMask("Terrain");
-
-        return Physics.CheckSphere(this.transform.position, radius);
+    public void OnTriggerStay(Collider other) {
+        if(other.gameObject.tag == "Ground") {
+            onGround = true;
+        }
     }
+
+    public void OnTriggerExit(Collider other) {
+        if(other.gameObject.tag == "Ground") {
+            onGround = false;
+        }
+    }
+
 }

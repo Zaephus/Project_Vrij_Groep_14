@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 5301871877435322662}
   - component: {fileID: 141983966516404822}
   - component: {fileID: 1667157391138476968}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: pPlane17
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &6169251282491561854
 Transform:
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 1519116286051793391}
   m_Layer: 0
   m_Name: Pier_Prefab_2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,12 +139,12 @@ GameObject:
   - component: {fileID: 4659012461772529089}
   - component: {fileID: 5932535665867647078}
   - component: {fileID: 1499937267234758769}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: pPlane17 (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &4659012461772529089
 Transform:

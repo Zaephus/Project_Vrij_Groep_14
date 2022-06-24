@@ -43,10 +43,12 @@ public class PlayerInteract : MonoBehaviour {
             interactText.enabled = false;
         }
 
-        if(isHolding && Input.GetKeyDown("h")) {
-            dropable.DropItem();
-            isHolding = false;
-            player.animator.SetBool("IsHolding",false);
+        if(isHolding) {
+            if(Input.GetKeyDown("g")) {
+                dropable.DropItem();
+                isHolding = false;
+                player.animator.SetBool("IsHolding",false);
+            }
         }
 
     }

@@ -38,7 +38,7 @@ public class PhotoCapture : MonoBehaviour
     bool firstTimeLook = false;
 
     public event EventHandler OnTakePicture;
-    bool firstTimePicture;
+    [HideInInspector] public bool firstTimePicture;
 
     // Start is called before the first frame update
     void Start()
@@ -82,7 +82,7 @@ public class PhotoCapture : MonoBehaviour
                 if (!viewingPhoto && cameraOn)
                 {
                     OnTakePicture?.Invoke(this, EventArgs.Empty);
-                    
+
                     if (!firstTimePicture)                //check of het de eerste keer is dat speler een foto neemt
                     {
                         firstTimePicture = true;

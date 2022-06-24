@@ -1849,6 +1849,7 @@ GameObject:
   - component: {fileID: 3806739786345841416}
   - component: {fileID: 6923828906598409871}
   - component: {fileID: 671493526532254508}
+  - component: {fileID: 43254487762525692}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1924,7 +1925,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   walkSpeed: 2
   runSpeed: 4
-  jumpHeight: 0.5
+  jumpHeight: 10
   canMove: 1
   mouseSensitivityX: 85
   mouseSensitivityY: 85
@@ -1932,6 +1933,7 @@ MonoBehaviour:
   playerCamera: {fileID: 3806739787513522626}
   playerHead: {fileID: 3806739787513522626}
   playerBody: {fileID: 3806739786345841417}
+  onGround: 0
 --- !u!54 &6923828906598409871
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1968,6 +1970,19 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+--- !u!65 &43254487762525692
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3806739786345841422}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3047058, y: 0.69001424, z: 0.3078285}
+  m_Center: {x: 0.009267837, y: 0.15499288, z: 0.017092556}
 --- !u!1 &3806739787513522627
 GameObject:
   m_ObjectHideFlags: 0
@@ -2220,6 +2235,7 @@ MonoBehaviour:
   animator: {fileID: 1528605088366277673}
   player: {fileID: 3120405287720136970}
   audioManager: {fileID: 7326439907004749187}
+  firstTimePicture: 0
 --- !u!95 &1528605088366277673
 Animator:
   serializedVersion: 3
@@ -2683,6 +2699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce7f1e67d8267d4da6433f5589b7d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holdItem: {fileID: 0}
   canInteract: 0
   isHolding: 0
   interactText: {fileID: 0}
