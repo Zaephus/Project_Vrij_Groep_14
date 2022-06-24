@@ -37,7 +37,7 @@ public class DistrictManager : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
-        //Go to End Screen;
+        FindObjectOfType<MenuManager>().LoadScene(2);
     }
 
 }
