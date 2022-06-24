@@ -48,7 +48,7 @@ public class Tutorial : Puzzle
     void Tutorial_OnTakePicture(object sender, System.EventArgs e)
     {
         PlayerManager player = FindObjectOfType<PlayerManager>();
-        GameObject stainedGlassPuck = Instantiate(stainedGlassPiecePrefab,player.playerInteract.holdTransform.position,player.playerInteract.holdTransform.rotation);
+        GameObject stainedGlassPuck = Instantiate(stainedGlassPiecePrefab,player.playerInteract.holdTransform.position,player.playerInteract.holdTransform.rotation,player.playerInteract.holdTransform);
         stainedGlassPuck.GetComponent<StainedGlassPiece>().isHeld = true;
         player.playerInteract.dropable = stainedGlassPuck.GetComponent<IDropable>();
         player.playerInteract.isHolding = true;
