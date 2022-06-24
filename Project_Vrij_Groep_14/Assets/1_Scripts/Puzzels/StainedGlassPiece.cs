@@ -31,8 +31,7 @@ public class StainedGlassPiece : MonoBehaviour,IInteractable,IDropable {
         }
         else if(isInWall) {
             itemCollider.enabled = false;
-            body.useGravity = false;
-            body.velocity = Vector3.zero;
+            Destroy(body);
         }
         else {
             itemCollider.enabled = true;

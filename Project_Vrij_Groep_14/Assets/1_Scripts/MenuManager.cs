@@ -16,9 +16,12 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 0 || SceneManager.GetActiveScene().buildIndex == 2)
         {
             gameState = GameState.MainMenu;
+            if(FindObjectOfType<Manager>()) {
+                Destroy(FindObjectOfType<Manager>().gameObject);
+            }
         }
         else
         {
@@ -70,6 +73,7 @@ public class MenuManager : MonoBehaviour
     {
        // Time.timeScale = 1f;
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     void PauseBehaviour()
